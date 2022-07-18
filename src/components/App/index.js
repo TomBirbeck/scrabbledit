@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import ScrabbleButton from '../Buttons';
 import './App.css';
 
 function App() {
@@ -7,6 +7,8 @@ function App() {
       <header className="App-header">
         Scrabbled
       </header>
+      <ScrabbleButton/>
+
     </div>
   );
 }
