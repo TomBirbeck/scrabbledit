@@ -1,7 +1,7 @@
 import Players from '../Players';
 import './App.css';
 import {useState} from 'react'
-import { LetterInputContext } from '../Context';
+import { WordContext } from '../Context';
 import Display from '../Display';
 
 function App() {
@@ -9,13 +9,13 @@ const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score
 // const [userInput, SetUserInput] = useState("")
 
   return (
+    <WordContext.Provider>
     <div className="App">
-      <h1> Scrabbled</h1>
-      <LetterInputContext.Provider>
+       <h1> Scrabbled</h1>
       <Display/>
       <Players playersNames={players}/>
-      </LetterInputContext.Provider>
     </div>
+    </WordContext.Provider>
   );
 }
 

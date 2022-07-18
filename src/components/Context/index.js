@@ -1,4 +1,4 @@
 import { createContext } from "react";
 
-export const LetterInputContext = createContext ({})
+export const WordContext = createContext ([])
 

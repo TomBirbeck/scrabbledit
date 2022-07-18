@@ -1,13 +1,14 @@
 import { useContext} from 'react'
-import { LetterInputContext } from "../Context"
+import { WordContext } from "../Context"
 const letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
 
 export default function ScrabbleButton(){
-    const {userInput, SetUserInput} = useContext(LetterInputContext)
+    
+    const {displayWord, SetDisplayWord} = useContext(WordContext)
 
-function handleClick(e){
-    SetUserInput(e.target.value)
-}
+    function handleClick(e){
+        SetDisplayWord([...displayWord, e.target.value])
+    }
 
 
  return (
