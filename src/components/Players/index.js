@@ -3,16 +3,14 @@ import "./players.css"
 
 
 export default function Players(){
-    // const [players, Setplayers] = useState({player1: "", player2: "", player3: "", player4: ""})
-    const [players, Setplayers] = useState([])
-    // const [players, Setplayers] = useState([{name: "", score: 0}, {name: "Simon", score: 0}, {name: "Steve", score: 0}, {name: "John", score: 0}])
-    const [player, Setplayer] = useState("")
-    //console.log("player\", playerz)
+    const [players, Setplayers] = useState([]);
+    const [player, Setplayer] = useState("");
+    const [turn, SetTurn] = useState("");
+    
     function handleplayer1(e){
-        e.preventDefault()
-        Setplayer(e.target.value)
+        e.preventDefault();
+        Setplayer(e.target.value);
     }
-    console.log("player",player)
     
     // function handleplayer2(e){
     //     Setplayer(e.target.value)
@@ -25,11 +23,16 @@ export default function Players(){
     // }
 
     function clickPlayer1(object){
-    const playerstuff = players
-     if (object) {playerstuff.push({name: object, score: 0})}
-      Setplayers(playerstuff)
-      Setplayer("")
+    const playerstuff = players;
+     if (object) {playerstuff.push({name: object, score: 0})};
+      Setplayers(playerstuff);
+      Setplayer("");
     }
+
+    function playerTurn(player){
+        SetTurn(player.name)
+    }
+    console.log("turn", turn)
     // function clickPlayer2(object){
     //     Setplayers(object[1].name = player)
     // }
@@ -42,7 +45,8 @@ export default function Players(){
     console.log("players", players)
     return (
         <div>
-        <h1>Player input</h1>
+        <h2> It's {turn}'s turn to play</h2>
+        <h3>Player input</h3>
         <input type = "text" onChange={handleplayer1} value = {player}></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button>
         {/* <input type = "text" onChange={handleplayer1} placeholder = "player 2"></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button>
         <input type = "text" onChange={handleplayer1} placeholder = "player 3"></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button>
@@ -63,7 +67,7 @@ export default function Players(){
         
         {players.map((val) => {
             return (<tbody key = {players.length++}>
-                        <td>{val.name}</td>
+                        <td><button onClick = {() => {playerTurn(val)}}>{val.name}</button></td>
                         <td>{val.score}</td>
                         </tbody>
         )})}
