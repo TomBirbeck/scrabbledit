@@ -102,3 +102,7 @@ export function calculateScrabbleScore(word) {
  if (word.length === 7){sum = sum + 50};
  return sum;
 }
+
+export function calculateDoubleScrabbleScore(displayWord){
+    return calculateScrabbleScore(displayWord) * 2
+}

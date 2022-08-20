@@ -1,4 +1,4 @@
-import { calculateScrabbleScore } from "./scrabble-score.js";
+import { calculateScrabbleScore, calculateDoubleScrabbleScore } from "./index.js";
 
 // List of matchers (expects) for jest:
 // https://jestjs.io/docs/using-matchers
@@ -141,5 +141,20 @@ test.each([
 ])
 (`When given a word checkScrabbleScore function returns the value of that word`, (letter, expected) =>{
     const actual = calculateScrabbleScore(letter);
+   expect(actual).toBe(expected);
+});
+
+
+
+test.each([
+    ["WORD", 16],
+    ["STAY", 14],
+    ["PLACE", 18],
+    ["ZONE", 26],
+    ["YACHT", 26],
+    ["POSTER", 16],
+])
+(`When given a word checkScrabbleScore function returns the value of that word`, (letter, expected) =>{
+    const actual = calculateDoubleScrabbleScore(letter);
    expect(actual).toBe(expected);
 });
