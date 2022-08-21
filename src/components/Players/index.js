@@ -1,11 +1,14 @@
 import { useState } from "react"
 import "./players.css"
+import { WordContext } from "../Context";
 
 
 export default function Players(){
     const [players, Setplayers] = useState([]);
     const [player, Setplayer] = useState("");
     const [turn, SetTurn] = useState("");
+
+    console.log(WordContext.currentValue)
     
     function handleplayer1(e){
         e.preventDefault();
@@ -52,8 +55,9 @@ export default function Players(){
         <input type = "text" onChange={handleplayer1} placeholder = "player 3"></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button>
         <input type = "text" onChange={handleplayer1} placeholder = "player 4"></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button> */}
      <table>
-            <th>Name</th>
+            <th>Player</th>
             <th>Score</th>
+            {/* <th>{WordContext}</th> */}
             {/* <tbody>
             <td>{players.player1}</td>
             <td>Score: 0</td>
@@ -64,13 +68,14 @@ export default function Players(){
             <td>{players.player4}</td>
             <td>Score: 0</td>
             </tbody> */}
-        
+        <tbody>
         {players.map((val) => {
-            return (<tbody key = {players.length++}>
+            return (<tr key = {players.length++}>
                         <td><button onClick = {() => {playerTurn(val)}}>{val.name}</button></td>
                         <td>{val.score}</td>
-                        </tbody>
+                        </tr>
         )})}
+                </tbody>
     </table>
         </div>
     )
