@@ -2,6 +2,7 @@ import ScrabbleButton from "../Buttons";
 import { WordContext } from "../Context"
 import { useState } from "react"
 import { calculateScrabbleScore} from "../ScoreCalc";
+import './/display.css'
 
 export default function Display(){
     
@@ -43,7 +44,7 @@ export default function Display(){
     return (
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div>
-        <h1>{displayWord.map((i) => { return <button>{i}</button>})}</h1>
+        <h1>{displayWord.map((i) => { return <button id="display-button">{i}</button>})}</h1>
         {tripleScore ? <h3>Triple Word Score Active</h3> : null}
         {doubleScore ? <h3>Double Word Score Active</h3> : null}
         <button onClick = {()=>{handleWordClick(displayWord, mode)}}>Submit</button>
