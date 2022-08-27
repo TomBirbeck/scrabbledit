@@ -5,3 +5,13 @@
     border-radius: 10%;
     background-color: blanchedalmond;
 }
+
+#letter-layout {
+    display: flex;
+    justify-content: center;
+}
+
+#letter-button-layout {
+    display: flex;
+    flex-direction: column;
+}
