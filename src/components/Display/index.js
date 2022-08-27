@@ -9,53 +9,63 @@ export default function Display(){
     const [displayWord, SetDisplayWord] = useState([])
     const [tripleScore, setTripleScore] = useState(false)
     const [doubleScore, setDoubleScore] = useState(false)
-    const [doubleLetter, setDoubleLetter] = useState(false)
-    const [tripleLetter, setTripleLetter] = useState(false)
     const [mode, setMode] = useState(1)
     const [score, SetScore] = useState(0)
 
-    function handleWordClick(displayWord, mode){
+    function handleWordCheck(displayWord){
+        let mode = 1;
+        doubleScore ? mode = 2 : tripleScore ? mode = 3 : mode = 1;
         SetScore(calculateScrabbleScore(displayWord) * mode)
-        SetDisplayWord([])
-        setMode(1)
-        setDoubleScore(false)
-        setTripleScore(false)
+    }
+
+    function handleWordSubmit(displayWord){
+        let mode = 1;
+        doubleScore ? mode = 2 : tripleScore ? mode = 3 : mode = 1;
+        SetScore(calculateScrabbleScore(displayWord) * mode)
     }
 
     function handleDelete(displayWord){
         const word = displayWord
-        // console.log('word1', word)
         word.pop()
-        // console.log('word2', word)
         return word
     }
     
     function handleDoubleWordClick(){
-        setDoubleScore(true)
+        setDoubleScore(!doubleScore)
         setTripleScore(false)
-        setMode(2)
+        doubleScore ? setMode(2) : setMode(1)
     }
 
     function handleTripleWordClick(){
-        setTripleScore(true)
+        setTripleScore(!tripleScore)
         setDoubleScore(false)
-        setMode(3)
+        tripleScore ? setMode(3) : setMode(1)
     }
+    
+    console.log("mode", mode)
 
-    console.log("double", doubleLetter)
-    console.log("triple", tripleLetter)
+   function handleChange(e) {
+        let isChecked = e.target.checked;
+        console.log(isChecked)
+      }
+
     return (
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div>
-        <h1 id="letter-layout">{displayWord.map((i) => { return <div id="letter-button-layout"><button id="display-button">{i}</button><button onClick={()=>{setDoubleLetter(!doubleLetter)}}>Double</button><button onClick={()=>{setTripleLetter(!tripleLetter)}}>Triple</button></div>})}</h1>
-        {tripleScore ? <h3>Triple Word Score Active</h3> : null}
-        {doubleScore ? <h3>Double Word Score Active</h3> : null}
-        <button onClick = {()=>{handleWordClick(displayWord, mode)}}>Submit</button>
-        <button onClick={() => {SetDisplayWord(handleDelete(displayWord))}}>remove letter</button>
-        {/* <button>double letter</button> */}
-        {/* <button>triple letter</button> */}
+        <div id="letter-layout">{displayWord.map((i) => { return (<div id="letter-button-layout">
+            <button id="display-button">{i}</button>
+            <div className="checkbox-container">
+            <label for="double" className="checkboxes"><input type="checkbox" name="double" value="yes" onChange={(e) => {handleChange(e)}}></input>Double</label>
+        <label for="triple" className="checkboxes"><input type="checkbox" name="triple" value="yes" onChange={(e) => {handleChange(e)}}></input>Triple</label>
+        </div>
+        </div>)})}</div>
+        <div className="score-mode">{tripleScore ? <h3>Triple Word Score Active</h3> : null}
+        {doubleScore ? <h3>Double Word Score Active</h3> : null}</div>
         <button onClick={handleDoubleWordClick}>double word</button>
         <button onClick={handleTripleWordClick}>triple word</button>
+        <button onClick={() => {SetDisplayWord(handleDelete(displayWord))}}>remove letter</button>
+        <button onClick = {()=>{handleWordCheck(displayWord)}}>Check</button>
+        <button onClick = {()=>{handleWordSubmit(displayWord)}}>Submit</button>
         <h2> Word score {score} </h2>
         <ScrabbleButton/>
         </div>

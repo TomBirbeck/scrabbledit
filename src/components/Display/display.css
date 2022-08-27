@@ -2,8 +2,9 @@
     margin: 0.5em;
     height: 5em;
     width: 5em;
-    border-radius: 10%;
-    background-color: blanchedalmond;
+    border-radius: 0.4em;
+    background-color: #e6caa2;
+    color: #023a12;
 }
 
 #letter-layout {
@@ -14,4 +15,36 @@
 #letter-button-layout {
     display: flex;
     flex-direction: column;
+}
+
+.checkbox-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.checkboxes {
+    margin-left: 0.3em;
+    font-size: 0.9em;
+}
+
+#double-letter-button {
+    margin-left: 0.5em;
+    margin-top: 0.1em;
+    height: 2em;
+    width: 5em;
+    border-radius: 0.4em;
+    background-color: #6cc8f3; 
+}
+#triple-letter-button {
+    margin-left: 0.5em;
+    margin-top: 0.1em;
+    height: 2em;
+    width: 5em;
+    border-radius: 0.4em;
+    background-color: #6c75f3;  
+}
+
+.score-mode {
+    height: 3em;
 }
