@@ -17,6 +17,7 @@ export default function Display({players, SetPlayers}){
     // const refTriple = useRef()
     // const [mode, setMode] = useState(1)
     const [score, SetScore] = useState(0)
+    const [passScore, setPassScore] = useState(0)
 
     function handleWordCheck(displayWord){
         let mode = 1;
@@ -29,13 +30,9 @@ export default function Display({players, SetPlayers}){
     function handleWordSubmit(displayWord){
         let mode = 1;
         doubleScore ? mode = 2 : tripleScore ? mode = 3 : mode = 1;
-        SetScore(calculateScrabbleScore(displayWord) * mode)
+        SetScore(calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode)
+        setPassScore(calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode)
     }
-    // function handleDelete(displayWord){
-        //     const word = displayWord
-        //     word.pop()
-        //     return word
-        // }
         
         function deleteLetter (index) {
             SetDisplayWord((word) => word.filter((_, i) => i !== index));
@@ -81,14 +78,15 @@ export default function Display({players, SetPlayers}){
         </div>)})}</div>
         <div className="score-mode">{tripleScore ? <h3>Triple Word Score Active</h3> : null}
         {doubleScore ? <h3>Double Word Score Active</h3> : null}</div>
+        <div>
         <button id="double-word-button" onClick={handleDoubleWordClick}>double word</button>
         <button id="triple-word-button" onClick={handleTripleWordClick}>triple word</button>
-        {/* <button onClick={() => {SetDisplayWord(handleDelete(displayWord))}}>remove letter</button> */}
         <button onClick = {()=>{handleWordCheck(displayWord)}}>Check</button>
         <button onClick = {()=>{handleWordSubmit(displayWord)}}>Submit</button>
+        </div>
         <h2> Word score {score} </h2>
         <ScrabbleButton/>
-        <Players playersNames={players} setPlayers = {SetPlayers}/>
+        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
         </div>
         </WordContext.Provider>
     )

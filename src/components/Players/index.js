@@ -3,10 +3,13 @@ import "./players.css"
 // import { WordContext } from "../Context";
 
 
-export default function Players(){
+export default function Players({score}){
     const [players, Setplayers] = useState([]);
     const [player, Setplayer] = useState("");
     const [turn, SetTurn] = useState("");
+    // const [iso, setIso] = useState("")
+
+    console.log("inside players", score)
     
     function handleplayer1(e){
         e.preventDefault();
@@ -22,9 +25,13 @@ export default function Players(){
 
     function playerTurn(player){
         SetTurn(player.name)
+        isolate(turn, players, score)
+    }
+
+    function isolate(name, players, score){
+        players.filter((peep) => { if (peep.name === name){peep.score += score} return peep});
     }
     
-    console.log("players", players)
     return (
         <div>
         <div>{turn.length > 0 ? <h2> It's {turn}'s turn to play</h2>: null}</div>
