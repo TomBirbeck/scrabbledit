@@ -82,6 +82,11 @@ export default function Display({players, SetPlayers}){
 
     //   console.log("word", displayWord)
 
+    // useEffect(() => {
+    //     console.log(passScore)
+
+    // }, [passScore])
+
     return (
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div id="display">
@@ -104,7 +109,8 @@ export default function Display({players, SetPlayers}){
         </div>
         <h2> Word score: {score} </h2>
         <ScrabbleButton/>
-        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
+        {/* <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/> */}
+        <Players score = {passScore}/>
         </div>
         </WordContext.Provider>
     )

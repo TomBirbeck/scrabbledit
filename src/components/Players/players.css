@@ -1,5 +1,6 @@
     table {
-    margin-top: 1em;
+    background-color: beige;
+    margin: 1em 0 1em 0;
     border: 2px solid forestgreen;
     width: 800px;
     height: 200px;
@@ -15,4 +16,16 @@
     
 #input-header {
     margin: 0.5em 0 0.5em 0;
+}
+
+#player-input-box {
+    margin-top: 1em;
+}
+
+#player-button {
+    height: 2em;
+    min-width: 4em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(255, 153, 0);  
 }

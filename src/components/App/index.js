@@ -5,13 +5,14 @@ import { WordContext } from '../Context';
 import Display from '../Display';
 
 function App() {
-const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score: 0}, {player:"", score: 0}])
+// const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score: 0}, {player:"", score: 0}])
 
   return (
     <WordContext.Provider>
     <div className="App">
        <h1 id='title'> Scrabbledit</h1>
-      <Display playersNames={players} setPlayers = {Setplayers}/>
+       <Display/>
+      {/* <Display playersNames={players} setPlayers = {Setplayers}/> */}
       {/* <Players playersNames={players} setPlayers = {Setplayers}/> */}
     </div>
     </WordContext.Provider>
