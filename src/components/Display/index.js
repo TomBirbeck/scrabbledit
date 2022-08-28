@@ -70,15 +70,25 @@ export default function Display({players, SetPlayers}){
             setTripleLetters(triples);
         }
 
-      console.log("word", displayWord)
+        function handleClear(){
+        SetDisplayWord([])
+        setDoubleLetters([])
+        setTripleLetters([])
+        SetScore(0)
+        setPassScore(0)
+        setDoubleScore(false)
+        setTripleScore(false)
+            }
+
+    //   console.log("word", displayWord)
 
     return (
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div id="display">
         <div id="letter-layout">{displayWord.map((i, index) => { return (<div id="letter-button-layout">
-            <button id="display-button" key={i}>{i}</button>
+            <button id="display-button" key={i}><span style={{fontSize: "3em"}}>{i}</span></button>
             <div className="checkbox-container">
-                <button onClick={() => {deleteLetter(index)}}>remove</button>
+                <button id="remove-button" onClick={() => {deleteLetter(index)}}>remove</button>
             <label for="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}}></input>Double</label>
         <label for="triple" className="checkboxes"><input type="checkbox" name="triple" value={i} onChange={(e) => {handleChangeTriple(e)}}></input>Triple</label>
         </div>
@@ -88,10 +98,11 @@ export default function Display({players, SetPlayers}){
         <div>
         <button id="double-word-button" onClick={handleDoubleWordClick}>double word</button>
         <button id="triple-word-button" onClick={handleTripleWordClick}>triple word</button>
-        <button onClick = {()=>{handleWordCheck(displayWord)}}>Check</button>
-        <button onClick = {()=>{handleWordSubmit(displayWord)}}>Submit</button>
+        <button id="check-button" onClick = {()=>{handleWordCheck(displayWord)}}>Check</button>
+        <button id="submit-button" onClick = {()=>{handleWordSubmit(displayWord)}}>Submit</button>
+        <button id="clear-button" onClick={()=>{handleClear()}}>Clear</button>
         </div>
-        <h2> Word score {score} </h2>
+        <h2> Word score: {score} </h2>
         <ScrabbleButton/>
         <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
         </div>

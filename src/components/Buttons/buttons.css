@@ -1,0 +1,8 @@
+#letter-buttons {
+    margin: 0.2em;
+    height: 3em;
+    width: 3em;
+    border-radius: 0.4em;
+    background-color: #e6caa2;
+    color: #023a12;
+}

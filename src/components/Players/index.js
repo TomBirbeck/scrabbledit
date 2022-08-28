@@ -35,7 +35,7 @@ export default function Players({score}){
     return (
         <div>
         <div>{turn.length > 0 ? <h2> It's {turn}'s turn to play</h2>: null}</div>
-        <h3>Player input</h3>
+        <h3 id="input-header">Player input</h3>
         <input type = "text" onChange={handleplayer1} value = {player}></input><button onClick = {() => {clickPlayer1(player)}}>Submit</button>
      <table>
         <thead><tr><td>Player</td><td>Score</td></tr></thead>

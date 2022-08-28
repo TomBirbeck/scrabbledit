@@ -1,5 +1,6 @@
-import { useContext, useEffect} from 'react'
+import { useContext } from 'react'
 import { WordContext } from "../Context"
+import "./buttons.css"
 const letters = ["A","B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "_"]
 
 export default function ScrabbleButton(){
@@ -15,7 +16,7 @@ export default function ScrabbleButton(){
     <div>
         {letters.map((l) => {
              return( 
-             <button key = {l} value = {l} onClick = {handleClick}>{l}</button>
+             <button id="letter-buttons" key = {l} value = {l} onClick = {handleClick}>{l}</button>
             )
         }
     )}

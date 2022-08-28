@@ -10,12 +10,15 @@
     width: 5em;
     border-radius: 0.4em;
     background-color: #e6caa2;
-    color: #023a12;
+    color: #023a12; 
+    box-shadow: 4px 4px 4px 1px rgba(0,0,0,0.39);
 }
 
 #letter-layout {
     display: flex;
     justify-content: center;
+    height: 25vh;
+    width: 100vw;
 }
 
 #letter-button-layout {
@@ -64,6 +67,35 @@ margin: 0.3em;
 border-radius: 0.4em;
 background-color: red;
 }
+
+#remove-button {
+    height: 2em;
+    width: 5em;
+    margin: 0.3em 0 0.3em 0.5em;
+    border-radius: 0.4em;
+    background-color: rgb(43, 255, 0);
+    }
+
+#check-button {
+    height: 2em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(204, 0, 255);
+    }
+
+#submit-button {
+    height: 2em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(255, 153, 0);
+    }
+
+#clear-button {
+    height: 2em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(172, 168, 161);
+    }
 
 .score-mode {
     height: 3em;
