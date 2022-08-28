@@ -8,8 +8,8 @@ import Players from "../Players";
 export default function Display({players, SetPlayers}){
     
     const [displayWord, SetDisplayWord] = useState([])
-    const [doubleLetters, setDoubleLetters] = useState([''])
-    const [tripleLetters, setTripleLetters] = useState([''])
+    const [doubleLetters, setDoubleLetters] = useState([])
+    const [tripleLetters, setTripleLetters] = useState([])
     const [tripleScore, setTripleScore] = useState(false)
     const [doubleScore, setDoubleScore] = useState(false)
     // const [isChecked, setIsChecked] = useState(false)
@@ -32,6 +32,13 @@ export default function Display({players, SetPlayers}){
         doubleScore ? mode = 2 : tripleScore ? mode = 3 : mode = 1;
         SetScore(calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode)
         setPassScore(calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode)
+        SetDisplayWord([])
+        setDoubleLetters([])
+        setTripleLetters([])
+        SetScore(0)
+        // setPassScore(0)
+        setDoubleScore(false)
+        setTripleScore(false)
     }
         
         function deleteLetter (index) {

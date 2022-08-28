@@ -59,6 +59,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
     const words5 = ["K"]
     const words6 = ["J", "X"]
     const words7 = ["Q", "Z"]
+    const words8 = ["_"]
 
     // const scrabbleWord = word.toUpperCase(); // converts all letters of word entered to uppercase
     let lets = word.join('')
@@ -69,7 +70,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
     const score = [];
     let sum = 0;
     
-    if (/^[a-zA-Z]+$/.test(scrabbleWord) === false) {
+    if (/^[a-zA-Z_]+$/.test(scrabbleWord) === false) {
         throw new Error(`Error, ${scrabbleWord} contains invalid characters, please use only letters`)
         }
     //for loop comparing letters to arrays
@@ -97,6 +98,9 @@ export function calculateScrabbleScore(word, doubles, triples) {
     }
     if (words7.includes(scrabbleWord.charAt(i))) {
         score.push(10);
+    }
+    if (words8.includes(scrabbleWord.charAt(i))) {
+        score.push(0)
     }
     }
 // adds 50 points to the score if all 7 tiles are used

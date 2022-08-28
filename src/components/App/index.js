@@ -10,7 +10,7 @@ const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score
   return (
     <WordContext.Provider>
     <div className="App">
-       <h1> Scrabbled</h1>
+       <h1> Scrabbledit</h1>
       <Display playersNames={players} setPlayers = {Setplayers}/>
       {/* <Players playersNames={players} setPlayers = {Setplayers}/> */}
     </div>
