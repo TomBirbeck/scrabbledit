@@ -1,4 +1,4 @@
-import Players from '../Players';
+// import Players from '../Players';
 import './App.css';
 import {useState} from 'react'
 import { WordContext } from '../Context';
@@ -11,8 +11,8 @@ const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score
     <WordContext.Provider>
     <div className="App">
        <h1> Scrabbled</h1>
-      <Display/>
-      <Players playersNames={players} setPlayers = {Setplayers}/>
+      <Display playersNames={players} setPlayers = {Setplayers}/>
+      {/* <Players playersNames={players} setPlayers = {Setplayers}/> */}
     </div>
     </WordContext.Provider>
   );
