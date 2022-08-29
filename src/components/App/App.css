@@ -1,6 +1,18 @@
+* {
+  margin: 0;
+}
+
 .App {
   text-align: center;
   background-color: rgb(252, 252, 212);
+  /* background-color: rgb(58, 147, 102); */
+  /* background-color: rgb(229, 62, 72); */
+  /* rgb(177,236,250) */
+  /* rgb(219,186,132) */
+  /* rgb(41,128,158) */
+  /* rgb(38,88,76) */
+  /* rgb(253,255,251) */
+  height: 100vh;
 }
 
 .App-logo {
