@@ -8,9 +8,9 @@ function App() {
 // const [players, Setplayers] = useState([{player:"", score: 0}, {player:"", score: 0}, {player:"", score: 0}])
 
   return (
-    <WordContext.Provider>
+    <WordContext.Provider value={WordContext}>
     <div className="App">
-      <div id='title-container'><div id='title-banner'><h1 id='title'> Scrabbledit</h1></div></div>
+      <div id='title-container'><div id='title-banner'><h1 id='title'>Scrabbledit</h1></div></div>
        <h3 id='motto'>We can't trust Barry with the scores again</h3>
        <Display/>
       {/* <Display playersNames={players} setPlayers = {Setplayers}/> */}

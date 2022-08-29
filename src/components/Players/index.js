@@ -12,10 +12,11 @@ export default function Players({score}){
     
     function handlePlayer(e){
         e.preventDefault();
-        setPlayer(e.target.value);
+        let name = e.target.value
+        setPlayer(name);
     }
 
-    // function clickPlayer1(object){
+    // function handleSubmitPlayer(object){
     // const playerstuff = [...players,{name: object, score: 0}];
     //   setPlayers(playerstuff);
     //   setPlayer("");
