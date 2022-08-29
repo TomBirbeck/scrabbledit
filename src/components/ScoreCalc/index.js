@@ -62,6 +62,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
     const words8 = ["_"]
 
     // const scrabbleWord = word.toUpperCase(); // converts all letters of word entered to uppercase
+
     let lets = word.join('')
     let dou = doubles.join('')
     let tri = triples.join('')

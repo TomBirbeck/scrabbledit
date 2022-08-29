@@ -73,28 +73,29 @@ background-color: red;
     width: 5em;
     margin: 0.3em 0 0.3em 0.5em;
     border-radius: 0.4em;
-    background-color: rgb(43, 255, 0);
+    background-color: rgb(236, 127, 76);
     }
 
 #check-button {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(204, 0, 255);
+    background-color: rgb(109, 243, 161);
+    /* background-color: rgb(204, 0, 255); */
     }
 
 #submit-button {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(255, 153, 0);
+    background-color: rgb(93, 218, 141);
     }
 
 #clear-button {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(172, 168, 161);
+    background-color: rgb(236, 127, 76);
     }
 
 .score-mode {

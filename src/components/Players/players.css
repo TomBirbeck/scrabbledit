@@ -2,11 +2,11 @@
     background-color: beige;
     margin: 1em 0 1em 0;
     border: 2px solid forestgreen;
-    width: 800px;
-    height: 200px;
+    width: 40vw;
+    height: auto;
     }
     
-    th {
+    thead tr td {
     border-bottom: 1px solid black;
     }
     
@@ -28,4 +28,18 @@
     margin: 0.3em;
     border-radius: 0.4em;
     background-color: rgb(255, 153, 0);  
+}
+
+#player-submit {
+    height: 2em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(93, 218, 141);  
+}
+
+#winner-button {
+    height: 2em;
+    margin: 0.3em;
+    border-radius: 0.4em;
+    background-color: rgb(243, 70, 205);  
 }
