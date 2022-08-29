@@ -10,7 +10,7 @@ function App() {
   return (
     <WordContext.Provider>
     <div className="App">
-       <h1 id='title'> Scrabbledit</h1>
+      <div id='title-container'><div id='title-banner'><h1 id='title'> Scrabbledit</h1></div></div>
        <h3 id='motto'>We can't trust Barry with the scores again</h3>
        <Display/>
       {/* <Display playersNames={players} setPlayers = {Setplayers}/> */}

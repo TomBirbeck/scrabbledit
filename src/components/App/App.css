@@ -54,14 +54,25 @@
   }
 }
 
+#title-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+#title-banner {
+  margin-top: 3em;
+  background-color: var(--red);
+  width: 30vw;
+}
+
 #title {
-  margin-bottom: 0.2em;
-  font-size: 3em;
+  font-size: 3.5em;
   color: var(--white);
 }
 
 #motto {
-  margin-bottom: 1em;
+  margin: 1em 0 1em 0;
   color: var(--white);
 }
 

@@ -12,6 +12,7 @@
     border-radius: 0.4em;
     background-color: var(--cream);
     color: var(--green2); 
+    font-weight: 700;
     box-shadow: 4px 4px 4px 1px rgba(0,0,0,0.39);
 }
 
@@ -34,8 +35,8 @@
 }
 
 .checkboxes {
-    margin-left: 0.3em;
-    font-size: 0.9em;
+    margin-left: 0.4em;
+    font-size: 1em;
     color: var(--white);
 }
 

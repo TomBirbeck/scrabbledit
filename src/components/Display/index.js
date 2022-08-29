@@ -92,8 +92,8 @@ export default function Display({players, SetPlayers}){
             <button id="display-button" key={i}><span style={{fontSize: "3em"}}>{i}</span></button>
             <div className="checkbox-container">
                 <button id="remove-button" onClick={() => {deleteLetter(index)}}>remove</button>
-            <label for="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}}></input>Double</label>
-        <label for="triple" className="checkboxes"><input type="checkbox" name="triple" value={i} onChange={(e) => {handleChangeTriple(e)}}></input>Triple</label>
+            <label for="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}} style = {{accentColor: 'var(--blue1)'}}></input>Double</label>
+        <label for="triple" className="checkboxes"><input type="checkbox" name="triple" value={i} onChange={(e) => {handleChangeTriple(e)}} style = {{accentColor: 'var(--blue2)'}}></input>Triple</label>
         </div>
         </div>)})}</div>
         <div className="score-mode">{tripleScore ? <h3>Triple Word Score Active</h3> : null}
