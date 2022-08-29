@@ -2,16 +2,20 @@
   margin: 0;
 }
 
+:root {
+  --green1: rgb(58, 147, 102); 
+  --green2: rgb(38,88,76);
+  --blue1: rgb(177,236,250);
+  --blue2: rgb(41,128,158);
+  --red: rgb(229, 62, 72);
+  --cream: rgb(219,186,132);
+  --white: rgb(253,255,251);
+}
+
 .App {
   text-align: center;
-  background-color: rgb(252, 252, 212);
-  /* background-color: rgb(58, 147, 102); */
-  /* background-color: rgb(229, 62, 72); */
-  /* rgb(177,236,250) */
-  /* rgb(219,186,132) */
-  /* rgb(41,128,158) */
-  /* rgb(38,88,76) */
-  /* rgb(253,255,251) */
+  /* background-color: rgb(252, 252, 212); */
+  background-color: var(--green2);
   height: 100vh;
 }
 
@@ -53,11 +57,11 @@
 #title {
   margin-bottom: 0.2em;
   font-size: 3em;
-  color: #06471f;
+  color: var(--white);
 }
 
 #motto {
   margin-bottom: 1em;
-  color: #06471f;
+  color: var(--white);
 }
 

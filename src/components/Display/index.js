@@ -105,7 +105,7 @@ export default function Display({players, SetPlayers}){
         <button id="submit-button" onClick = {()=>{handleWordSubmit(displayWord)}}>Submit</button>
         <button id="clear-button" onClick={()=>{handleClear()}}>Clear</button>
         </div>
-        <h2> Word score: {score} </h2>
+        <h2 id="word-score"> Word score: {score} </h2>
         <ScrabbleButton/>
         <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
         </div>

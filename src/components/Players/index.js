@@ -1,6 +1,5 @@
 import { useState } from "react"
 import "./players.css"
-// import { WordContext } from "../Context";
 
 
 export default function Players({score}){
@@ -47,7 +46,7 @@ export default function Players({score}){
     console.log("players", players)
     
     return (
-        <div>
+        <section id="player-section">
         <div>{winner.length > 0 ? <h2>{winner} is the winnner. Congratulations!</h2>: null}</div>
         <div>{turn.length > 0 ? <h2> It's {turn}'s turn to play</h2>: null}</div>
         {/* <h3 id="input-header">Player input</h3> */}
@@ -64,6 +63,6 @@ export default function Players({score}){
                 </tbody>
     </table>
     <button id="winner-button" onClick={() => handleWinner(players)}>Winner</button>
-        </div>
+        </section>
     )
 }

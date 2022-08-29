@@ -1,7 +1,11 @@
-    table {
-    background-color: beige;
+#player-section {
+    background-color: var(--green2);
+}
+
+table {
+    background-color: var(--green1);
     margin: 1em 0 1em 0;
-    border: 2px solid forestgreen;
+    border: 5px ridge var(--cream);
     width: 40vw;
     height: auto;
     }
@@ -27,19 +31,20 @@
     min-width: 4em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(255, 153, 0);  
+    /* background-color: rgb(255, 153, 0);   */
+    background-color: var(--blue1);
 }
 
 #player-submit {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(93, 218, 141);  
+    background-color: var(--green1);  
 }
 
 #winner-button {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: rgb(243, 70, 205);  
+    background-color: gold;  
 }
