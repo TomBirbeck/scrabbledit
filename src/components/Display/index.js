@@ -24,8 +24,6 @@ export default function Display({players, SetPlayers}){
         doubleScore ? mode = 2 : tripleScore ? mode = 3 : mode = 1;
         SetScore(calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode)
     }
-    console.log("doubles", doubleLetters)
-    console.log("triples", tripleLetters)
     
     function handleWordSubmit(displayWord){
         let mode = 1;
@@ -109,8 +107,7 @@ export default function Display({players, SetPlayers}){
         </div>
         <h2> Word score: {score} </h2>
         <ScrabbleButton/>
-        {/* <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/> */}
-        <Players score = {passScore}/>
+        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
         </div>
         </WordContext.Provider>
     )

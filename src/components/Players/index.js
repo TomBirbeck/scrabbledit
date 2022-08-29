@@ -41,10 +41,10 @@ export default function Players({score}){
 
     function handleWinner(players) {
       let winner = players.sort((a, b) => {return a.score - b.score})
-      let value = 0
-        players.filter((peeps) => {if (peeps.name > 0){value += 1}})
-      setWinner(winner[value].name)
+      setWinner(winner[3].name)
     }
+
+    console.log("players", players)
     
     return (
         <div>
