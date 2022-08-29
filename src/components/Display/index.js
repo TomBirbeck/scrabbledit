@@ -107,7 +107,7 @@ export default function Display({players, SetPlayers}){
         </div>
         <h2 id="word-score"> Word score: {score} </h2>
         <ScrabbleButton/>
-        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
+        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore} setScore = {setPassScore}/>
         </div>
         </WordContext.Provider>
     )
