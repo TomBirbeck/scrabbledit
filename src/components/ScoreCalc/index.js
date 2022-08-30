@@ -51,7 +51,7 @@
 // }
 
 export function calculateScrabbleScore(word, doubles, triples) {
-    console.log("incword", word)
+    // console.log("incword", word)
     const words1 = ["A", "E", "I", "O", "U", "L", "N", "R", "S", "T"]
     const words2 = ["D", "G"]
     const words3 = ["B", "C", "M", "P"]
@@ -67,7 +67,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
     let dou = doubles.join('')
     let tri = triples.join('')
     let scrabbleWord = lets + dou + tri + tri;
-    console.log("scrab", scrabbleWord)
+    // console.log("scrab", scrabbleWord)
     const score = [];
     let sum = 0;
     

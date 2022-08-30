@@ -2,13 +2,13 @@ import { useState } from "react"
 import "./players.css"
 
 
-export default function Players({score, setScore}){
+export default function Players({score, setScore, turn, setTurn}){
     const [player, setPlayer] = useState("");
     const [player1, setPlayer1] = useState({id: 1, name: "player 1", score: 0});
     const [player2, setPlayer2] = useState({id: 2, name: "player 2", score: 0});
     const [player3, setPlayer3] = useState({id: 3, name: "player 3", score: 0});
     const [player4, setPlayer4] = useState({id: 4, name: "player 4", score: 0});
-    const [turn, setTurn] = useState({});
+    // const [turn, setTurn] = useState({});
     const [winner, setWinner] = useState("");
     // const [players, setPlayers] = useState([])
 
@@ -37,11 +37,11 @@ export default function Players({score, setScore}){
         setTurn(player)
         isolate(turn, score)
     }
-    console.log("turn",turn)
-    console.log("turn name", turn.name)
+    // console.log("turn",turn)
+    // console.log("turn name", turn.name)
+    // console.log("passedscore", score)
 
     function isolate(player, score){
-        console.log("iso player", player)
     const newScore = player.score + score
     let object = {...player, score: newScore}
     if (player.id === 1){
@@ -50,21 +50,27 @@ export default function Players({score, setScore}){
     }
     if (player.id === 2){
         setPlayer2(object)
+        setScore(0)
     }
     if (player.id === 3){
         setPlayer3(object)
+        setScore(0)
     }
     if (player.id === 4){
         setPlayer4(object)
+        setScore(0)
     }
     }
 
-    function handleWinner(players) {
-      let winner = players.sort((a, b) => {return a.score - b.score})
-      setWinner(winner[3].name)
+    function handleWinner(a, b, c ,d) {
+        console.log(a, b, c, d)
+        let players = [a, b, c, d]
+        console.log("win players", players)
+      let winner = players.sort((a, b) => {return b.score - a.score})[0]
+      console.log("winner", winner)
+      setWinner(winner.name)
     }
 
-    console.log("player1", player1)
     
     return (
         <section id="player-section">
@@ -101,7 +107,7 @@ export default function Players({score, setScore}){
         )})}
                 </tbody> */}
     </table>
-    {/* <button id="winner-button" onClick={() => handleWinner(players)}>Winner</button> */}
+    <button id="winner-button" onClick={() => handleWinner(player1, player2, player3, player4)}>Winner</button>
         </section>
     )
 }

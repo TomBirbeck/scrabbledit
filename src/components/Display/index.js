@@ -18,6 +18,7 @@ export default function Display({players, SetPlayers}){
     // const [mode, setMode] = useState(1)
     const [score, SetScore] = useState(0)
     const [passScore, setPassScore] = useState(0)
+    const [turn, setTurn] = useState({});
 
     function handleWordCheck(displayWord){
         let mode = 1;
@@ -107,7 +108,7 @@ export default function Display({players, SetPlayers}){
         </div>
         <h2 id="word-score"> Word score: {score} </h2>
         <ScrabbleButton/>
-        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore} setScore = {setPassScore}/>
+        <Players score = {passScore} setScore = {setPassScore} turn = {turn} setTurn = {setTurn}/>
         </div>
         </WordContext.Provider>
     )
