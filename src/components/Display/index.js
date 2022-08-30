@@ -90,7 +90,7 @@ export default function Display({players, SetPlayers}){
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div id="display">
         <div id="letter-layout">{displayWord.map((i, index) => { return (<div id="letter-button-layout">
-            <button id="display-button" key={i}><span style={{fontSize: "3em"}}>{i}</span></button>
+            <div id="display-button" key={i}><span style={{fontSize: "3.2em"}}>{i}</span></div>
             <div className="checkbox-container">
                 <button id="remove-button" onClick={() => {deleteLetter(index)}}>remove</button>
             <label for="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}} style = {{accentColor: 'var(--blue1)'}}></input>Double</label>

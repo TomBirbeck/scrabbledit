@@ -6,9 +6,9 @@
 }
 
 #display-button {
-    margin: 0.5em;
-    height: 5em;
-    width: 5em;
+    margin: 0.5em 0.5em 0.5em 0.2em;
+    height: 4.5em;
+    width: 4.5em;
     border-radius: 0.4em;
     background-color: var(--cream);
     color: var(--green2); 

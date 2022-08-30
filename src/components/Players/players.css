@@ -8,10 +8,12 @@ table {
     border: 8px ridge var(--cream);
     width: 40vw;
     height: auto;
+    color: var(--white);
+    font-size: 1.1em;
     }
     
     thead tr td {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid var(--cream);
     }
     
     td {
@@ -23,7 +25,7 @@ table {
 }
 
 #player-input-box {
-    margin-top: 1em;
+    margin: 1em 0.5em 0 0;
 }
 
 #player-button {
@@ -31,15 +33,19 @@ table {
     min-width: 4em;
     margin: 0.3em;
     border-radius: 0.4em;
+    border-color: var(--white);
     /* background-color: rgb(255, 153, 0);   */
     background-color: var(--blue2);
+    color: var(--white);
 }
 
-#player-submit {
+.player-submit {
     height: 2em;
     margin: 0.3em;
     border-radius: 0.4em;
-    background-color: var(--green1);  
+    background-color: var(--green1);
+    border-color: var(--white);
+    color: var(--white);
 }
 
 #winner-button {

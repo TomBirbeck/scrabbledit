@@ -18,25 +18,41 @@ export default function Players({score, setScore, turn, setTurn}){
         let name = e.target.value
         setPlayer(name);
     }
-
+    
     function handleSubmitPlayer1(object){
-    const playerstuff = {...player1, name: object, score: 0};
-      setPlayer1(playerstuff);
-      setPlayer("");
+        const playerstuff = {...player1, name: object};
+        setPlayer1(playerstuff);
+        setPlayer("");
+    }
+    function handleSubmitPlayer2(object){
+        const playerstuff = {...player2, name: object};
+        setPlayer2(playerstuff);
+        setPlayer("");
+    }
+    function handleSubmitPlayer3(object){
+        const playerstuff = {...player3, name: object};
+        setPlayer3(playerstuff);
+        setPlayer("");
+    }
+    function handleSubmitPlayer4(object){
+        const playerstuff = {...player4, name: object};
+        setPlayer4(playerstuff);
+        setPlayer("");
     }
     // console.log("players", players)
-
+    
     // function handleSubmitPlayer(object){
-    // const playerstuff = players;
-    //  if (object) {playerstuff.push({name: object, score: 0})};
-    //   setPlayers(playerstuff);
-    //   setPlayer("");
-    // }
+        // const playerstuff = players;
+        //  if (object) {playerstuff.push({name: object, score: 0})};
+        //   setPlayers(playerstuff);
+        //   setPlayer("");
+        // }
+        
+        function playerTurn(player){
+            setTurn(player)
+            isolate(turn, score)
+        }
 
-    function playerTurn(player){
-        setTurn(player)
-        isolate(turn, score)
-    }
     // console.log("turn",turn)
     // console.log("turn name", turn.name)
     // console.log("passedscore", score)
@@ -77,7 +93,11 @@ export default function Players({score, setScore, turn, setTurn}){
         <div>{winner.length > 0 ? <h2 id="winner-text">{winner} is the winnner. Congratulations!</h2>: null}</div>
         <div>{turn.name ? <h2 id="turn-text"> It's {turn.name}'s turn to play</h2>: null}</div>
         {/* <h3 id="input-header">Player input</h3> */}
-        <input id="player-input-box" type = "text" onChange={(e) => {handlePlayer(e)}} value = {player} placeholder="Insert player name"></input><button id="player-submit" onClick = {() => {handleSubmitPlayer1(player)}}>Submit</button>
+        <input id="player-input-box" type = "text" onChange={(e) => {handlePlayer(e)}} value = {player} placeholder="Insert player name"></input>
+        <button className="player-submit" onClick = {() => {handleSubmitPlayer1(player)}}>Player 1</button>
+        <button className="player-submit" onClick = {() => {handleSubmitPlayer2(player)}}>Player 2</button>
+        <button className="player-submit" onClick = {() => {handleSubmitPlayer3(player)}}>Player 3</button>
+        <button className="player-submit" onClick = {() => {handleSubmitPlayer4(player)}}>Player 4</button>
      <table>
         <thead><tr><td>Player</td><td>Score</td></tr></thead>
         <tbody>
