@@ -74,8 +74,8 @@ export default function Players({score, setScore, turn, setTurn}){
     
     return (
         <section id="player-section">
-        <div>{winner.length > 0 ? <h2>{winner} is the winnner. Congratulations!</h2>: null}</div>
-        <div>{turn.name ? <h2> It's {turn.name}'s turn to play</h2>: null}</div>
+        <div>{winner.length > 0 ? <h2 id="winner-text">{winner} is the winnner. Congratulations!</h2>: null}</div>
+        <div>{turn.name ? <h2 id="turn-text"> It's {turn.name}'s turn to play</h2>: null}</div>
         {/* <h3 id="input-header">Player input</h3> */}
         <input id="player-input-box" type = "text" onChange={(e) => {handlePlayer(e)}} value = {player} placeholder="Insert player name"></input><button id="player-submit" onClick = {() => {handleSubmitPlayer1(player)}}>Submit</button>
      <table>

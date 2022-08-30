@@ -48,3 +48,11 @@ table {
     border-radius: 0.4em;
     background-color: gold;  
 }
+
+#winner-text {
+    color: var(--white);
+}
+
+#turn-text {
+    color: var(--white);
+}
