@@ -62,7 +62,7 @@
 
 #title-banner {
   margin-top: 1em;
-  margin-left: -1em;
+  /* margin-left: -1em; */
   background-color: var(--red);
   padding-left: 4em;
   padding-right: 4em;
@@ -76,4 +76,9 @@
 #motto {
   margin: 1em 0 1em 0;
   color: var(--white);
+}
+@media only screen and (max-width: 500px) {
+  #title-banner {
+    padding: 0;
+  }
 }
