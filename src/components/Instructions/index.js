@@ -24,7 +24,7 @@ export default function Instructions() {
             <li>
               Enter name into text box and then click button of player you wish
               to assign (eg.{' '}
-              <button id='instruction-player-button'>player 1</button>)
+              <button className='player-submit'>Player 1</button>)
             </li>
             <li className='instruction-head'>To select a player's turn:</li>
             <li>
