@@ -1,6 +1,6 @@
 import ScrabbleButton from '../Buttons';
 import { WordContext } from '../Context';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { calculateScrabbleScore } from '../ScoreCalc';
 import './/display.css';
 import Players from '../Players';
@@ -48,7 +48,6 @@ export default function Display() {
     // setPassScore(0)
     setDoubleScore(false);
     setTripleScore(false);
-    isolate(turn, passScore)
   }
 
   function deleteLetter(index) {
@@ -94,8 +93,8 @@ export default function Display() {
     setTripleScore(false);
   }
 
+  useEffect(()=> {
   function isolate(player, score) {
-   if (passScore > 0); {
     const newScore = player.score + score;
     let object = { ...player, score: newScore };
     if (player.id === 1) {
@@ -116,14 +115,10 @@ export default function Display() {
     }
     console.log("newscore", newScore)
 }
-  }
-  console.log("Passscore", passScore)
-  //   console.log("word", displayWord)
-
-  // useEffect(() => {
-  //     console.log(passScore)
-
-  // }, [passScore])
+  
+  isolate(turn, passScore)
+}, [passScore])
+  console.log("Passcore", passScore)
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
