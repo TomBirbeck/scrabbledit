@@ -3,13 +3,13 @@
 }
 
 :root {
-  --green1: rgb(58, 147, 102); 
-  --green2: rgb(38,88,76);
-  --blue1: rgb(177,236,250);
-  --blue2: rgb(41,128,158);
+  --green1: rgb(58, 147, 102);
+  --green2: rgb(38, 88, 76);
+  --blue1: rgb(177, 236, 250);
+  --blue2: rgb(41, 128, 158);
   --red: rgb(229, 62, 72);
-  --cream: rgb(219,186,132);
-  --white: rgb(253,255,251);
+  --cream: rgb(219, 186, 132);
+  --white: rgb(253, 255, 251);
 }
 
 .App {
@@ -61,9 +61,11 @@
 }
 
 #title-banner {
+  margin-top: 1em;
   margin-left: -1em;
   background-color: var(--red);
-  width: 30vw;
+  padding-left: 4em;
+  padding-right: 4em;
 }
 
 #title {
@@ -75,4 +77,3 @@
   margin: 1em 0 1em 0;
   color: var(--white);
 }
-

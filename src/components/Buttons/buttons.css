@@ -1,9 +1,9 @@
-#letter-buttons {
-    margin: 0.2em;
-    height: 3em;
-    width: 3em;
-    border-radius: 0.4em;
-    background-color: var(--cream);
-    color: var(--green2);
-    font-weight: 800;
+.letter-buttons {
+  margin: 0.2em;
+  height: 3em;
+  width: 3em;
+  border-radius: 0.4em;
+  background-color: var(--cream);
+  color: var(--green2);
+  font-weight: 800;
 }

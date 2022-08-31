@@ -1,123 +1,207 @@
-import { useState } from "react"
-import "./players.css"
+import { useState } from 'react';
+import './players.css';
 
+export default function Players({ score, setScore, turn, setTurn }) {
+  const [player, setPlayer] = useState('');
+  const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
+  const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
+  const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
+  const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
+  // const [turn, setTurn] = useState({});
+  const [winner, setWinner] = useState('');
+  // const [players, setPlayers] = useState([])
 
-export default function Players({score, setScore, turn, setTurn}){
-    const [player, setPlayer] = useState("");
-    const [player1, setPlayer1] = useState({id: 1, name: "player 1", score: 0});
-    const [player2, setPlayer2] = useState({id: 2, name: "player 2", score: 0});
-    const [player3, setPlayer3] = useState({id: 3, name: "player 3", score: 0});
-    const [player4, setPlayer4] = useState({id: 4, name: "player 4", score: 0});
-    // const [turn, setTurn] = useState({});
-    const [winner, setWinner] = useState("");
-    // const [players, setPlayers] = useState([])
+  function handlePlayer(e) {
+    e.preventDefault();
+    let name = e.target.value;
+    setPlayer(name);
+  }
 
-    
-    function handlePlayer(e){
-        e.preventDefault();
-        let name = e.target.value
-        setPlayer(name);
-    }
-    
-    function handleSubmitPlayer1(object){
-        const playerstuff = {...player1, name: object};
-        setPlayer1(playerstuff);
-        setPlayer("");
-    }
-    function handleSubmitPlayer2(object){
-        const playerstuff = {...player2, name: object};
-        setPlayer2(playerstuff);
-        setPlayer("");
-    }
-    function handleSubmitPlayer3(object){
-        const playerstuff = {...player3, name: object};
-        setPlayer3(playerstuff);
-        setPlayer("");
-    }
-    function handleSubmitPlayer4(object){
-        const playerstuff = {...player4, name: object};
-        setPlayer4(playerstuff);
-        setPlayer("");
-    }
-    // console.log("players", players)
-    
-    // function handleSubmitPlayer(object){
-        // const playerstuff = players;
-        //  if (object) {playerstuff.push({name: object, score: 0})};
-        //   setPlayers(playerstuff);
-        //   setPlayer("");
-        // }
-        
-        function playerTurn(player){
-            setTurn(player)
-            isolate(turn, score)
-        }
+  function handleSubmitPlayer1(object) {
+    const playerstuff = { ...player1, name: object };
+    setPlayer1(playerstuff);
+    setPlayer('');
+  }
+  function handleSubmitPlayer2(object) {
+    const playerstuff = { ...player2, name: object };
+    setPlayer2(playerstuff);
+    setPlayer('');
+  }
+  function handleSubmitPlayer3(object) {
+    const playerstuff = { ...player3, name: object };
+    setPlayer3(playerstuff);
+    setPlayer('');
+  }
+  function handleSubmitPlayer4(object) {
+    const playerstuff = { ...player4, name: object };
+    setPlayer4(playerstuff);
+    setPlayer('');
+  }
+  // console.log("players", players)
 
-    // console.log("turn",turn)
-    // console.log("turn name", turn.name)
-    // console.log("passedscore", score)
+  // function handleSubmitPlayer(object){
+  // const playerstuff = players;
+  //  if (object) {playerstuff.push({name: object, score: 0})};
+  //   setPlayers(playerstuff);
+  //   setPlayer("");
+  // }
 
-    function isolate(player, score){
-    const newScore = player.score + score
-    let object = {...player, score: newScore}
-    if (player.id === 1){
-        setPlayer1(object)
-        setScore(0)
-    }
-    if (player.id === 2){
-        setPlayer2(object)
-        setScore(0)
-    }
-    if (player.id === 3){
-        setPlayer3(object)
-        setScore(0)
-    }
-    if (player.id === 4){
-        setPlayer4(object)
-        setScore(0)
-    }
-    }
+  function playerTurn(player) {
+    setTurn(player);
+    isolate(turn, score);
+  }
 
-    function handleWinner(a, b, c ,d) {
-        console.log(a, b, c, d)
-        let players = [a, b, c, d]
-        console.log("win players", players)
-      let winner = players.sort((a, b) => {return b.score - a.score})[0]
-      console.log("winner", winner)
-      setWinner(winner.name)
-    }
+  // console.log("turn",turn)
+  // console.log("turn name", turn.name)
+  // console.log("passedscore", score)
 
-    
-    return (
-        <section id="player-section">
-        <div>{winner.length > 0 ? <h2 id="winner-text">{winner} is the winnner. Congratulations!</h2>: null}</div>
-        <div>{turn.name ? <h2 id="turn-text"> It's {turn.name}'s turn to play</h2>: null}</div>
-        {/* <h3 id="input-header">Player input</h3> */}
-        <input id="player-input-box" type = "text" onChange={(e) => {handlePlayer(e)}} value = {player} placeholder="Insert player name"></input>
-        <button className="player-submit" onClick = {() => {handleSubmitPlayer1(player)}}>Player 1</button>
-        <button className="player-submit" onClick = {() => {handleSubmitPlayer2(player)}}>Player 2</button>
-        <button className="player-submit" onClick = {() => {handleSubmitPlayer3(player)}}>Player 3</button>
-        <button className="player-submit" onClick = {() => {handleSubmitPlayer4(player)}}>Player 4</button>
-     <table>
-        <thead><tr><td>Player</td><td>Score</td></tr></thead>
+  function isolate(player, score) {
+    const newScore = player.score + score;
+    let object = { ...player, score: newScore };
+    if (player.id === 1) {
+      setPlayer1(object);
+      setScore(0);
+    }
+    if (player.id === 2) {
+      setPlayer2(object);
+      setScore(0);
+    }
+    if (player.id === 3) {
+      setPlayer3(object);
+      setScore(0);
+    }
+    if (player.id === 4) {
+      setPlayer4(object);
+      setScore(0);
+    }
+  }
+
+  function handleWinner(a, b, c, d) {
+    console.log(a, b, c, d);
+    let players = [a, b, c, d];
+    console.log('win players', players);
+    let winner = players.sort((a, b) => {
+      return b.score - a.score;
+    })[0];
+    console.log('winner', winner);
+    setWinner(winner.name);
+  }
+
+  return (
+    <section id='player-section'>
+      <div>
+        {winner.length > 0 ? (
+          <h2 id='winner-text'>{winner} is the winnner. Congratulations!</h2>
+        ) : null}
+      </div>
+      <div>
+        {turn.name ? (
+          <h2 id='turn-text'> It's {turn.name}'s turn to play</h2>
+        ) : null}
+      </div>
+      {/* <h3 id="input-header">Player input</h3> */}
+      <input
+        id='player-input-box'
+        type='text'
+        onChange={(e) => {
+          handlePlayer(e);
+        }}
+        value={player}
+        placeholder='Insert player name'
+      ></input>
+      <button
+        className='player-submit'
+        onClick={() => {
+          handleSubmitPlayer1(player);
+        }}
+      >
+        Player 1
+      </button>
+      <button
+        className='player-submit'
+        onClick={() => {
+          handleSubmitPlayer2(player);
+        }}
+      >
+        Player 2
+      </button>
+      <button
+        className='player-submit'
+        onClick={() => {
+          handleSubmitPlayer3(player);
+        }}
+      >
+        Player 3
+      </button>
+      <button
+        className='player-submit'
+        onClick={() => {
+          handleSubmitPlayer4(player);
+        }}
+      >
+        Player 4
+      </button>
+      <table>
+        <thead>
+          <tr>
+            <td>Player</td>
+            <td>Score</td>
+          </tr>
+        </thead>
         <tbody>
-        <tr key = {player1.name}>
-                        <td><button id="player-button" onClick = {() => {playerTurn(player1)}}>{player1.name}</button></td>
-                        <td>{player1.score}</td>
-                        </tr>
-        <tr key = {player2.name}>
-                        <td><button id="player-button" onClick = {() => {playerTurn(player2)}}>{player2.name}</button></td>
-                        <td>{player2.score}</td>
-                        </tr>
-        <tr key = {player3.name}>
-                        <td><button id="player-button" onClick = {() => {playerTurn(player3)}}>{player3.name}</button></td>
-                        <td>{player3.score}</td>
-                        </tr>
-        <tr key = {player4.name}>
-                        <td><button id="player-button" onClick = {() => {playerTurn(player4)}}>{player4.name}</button></td>
-                        <td>{player4.score}</td>
-                        </tr>
-                </tbody>
+          <tr key={player1.name}>
+            <td>
+              <button
+                id='player-button'
+                onClick={() => {
+                  playerTurn(player1);
+                }}
+              >
+                {player1.name}
+              </button>
+            </td>
+            <td>{player1.score}</td>
+          </tr>
+          <tr key={player2.name}>
+            <td>
+              <button
+                id='player-button'
+                onClick={() => {
+                  playerTurn(player2);
+                }}
+              >
+                {player2.name}
+              </button>
+            </td>
+            <td>{player2.score}</td>
+          </tr>
+          <tr key={player3.name}>
+            <td>
+              <button
+                id='player-button'
+                onClick={() => {
+                  playerTurn(player3);
+                }}
+              >
+                {player3.name}
+              </button>
+            </td>
+            <td>{player3.score}</td>
+          </tr>
+          <tr key={player4.name}>
+            <td>
+              <button
+                id='player-button'
+                onClick={() => {
+                  playerTurn(player4);
+                }}
+              >
+                {player4.name}
+              </button>
+            </td>
+            <td>{player4.score}</td>
+          </tr>
+        </tbody>
         {/* <tbody>
         {players.map((val) => {
             return (<tr key = {players.length++}>
@@ -126,8 +210,13 @@ export default function Players({score, setScore, turn, setTurn}){
                         </tr>
         )})}
                 </tbody> */}
-    </table>
-    <button id="winner-button" onClick={() => handleWinner(player1, player2, player3, player4)}>Winner</button>
-        </section>
-    )
+      </table>
+      <button
+        className='winner-button'
+        onClick={() => handleWinner(player1, player2, player3, player4)}
+      >
+        Winner
+      </button>
+    </section>
+  );
 }
