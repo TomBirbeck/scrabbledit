@@ -19,6 +19,10 @@ export default function Display() {
   const [score, SetScore] = useState(0);
   const [passScore, setPassScore] = useState(0);
   const [turn, setTurn] = useState({});
+  const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
+  const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
+  const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
+  const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
 
   function handleWordCheck(displayWord) {
     let mode = 1;
@@ -44,6 +48,7 @@ export default function Display() {
     // setPassScore(0)
     setDoubleScore(false);
     setTripleScore(false);
+    isolate(turn, passScore)
   }
 
   function deleteLetter(index) {
@@ -89,6 +94,30 @@ export default function Display() {
     setTripleScore(false);
   }
 
+  function isolate(player, score) {
+   if (passScore > 0); {
+    const newScore = player.score + score;
+    let object = { ...player, score: newScore };
+    if (player.id === 1) {
+      setPlayer1(object);
+    //   setPassScore(0);
+    }
+    if (player.id === 2) {
+      setPlayer2(object);
+    //   setPassScore(0);
+    }
+    if (player.id === 3) {
+      setPlayer3(object);
+    //   setPassScore(0);
+    }
+    if (player.id === 4) {
+      setPlayer4(object);
+    //   setPassScore(0);
+    }
+    console.log("newscore", newScore)
+}
+  }
+  console.log("Passscore", passScore)
   //   console.log("word", displayWord)
 
   // useEffect(() => {
@@ -191,10 +220,18 @@ export default function Display() {
         <h2 id='word-score'> Word score: {score} </h2>
         <ScrabbleButton />
         <Players
-          score={passScore}
-          setScore={setPassScore}
+        //   score={passScore}
+        //   setScore={setPassScore}
           turn={turn}
           setTurn={setTurn}
+          player1={player1}
+          setPlayer1={setPlayer1}
+          player2={player2}
+          setPlayer2={setPlayer2}
+          player3={player3}
+          setPlayer3={setPlayer3}
+          player4={player4}
+          setPlayer4={setPlayer4}
         />
       </div>
     </WordContext.Provider>

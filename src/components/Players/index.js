@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import './players.css';
 
-export default function Players({ score, setScore, turn, setTurn }) {
+export default function Players({ score, setScore, turn, setTurn, player1, setPlayer1, player2, setPlayer2, player3, setPlayer3, player4, setPlayer4 }) {
   const [player, setPlayer] = useState('');
-  const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
-  const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
-  const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
-  const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
+//   const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
+//   const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
+//   const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
+//   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
   // const [turn, setTurn] = useState({});
   const [winner, setWinner] = useState('');
   // const [players, setPlayers] = useState([])
@@ -48,33 +48,33 @@ export default function Players({ score, setScore, turn, setTurn }) {
 
   function playerTurn(player) {
     setTurn(player);
-    isolate(turn, score);
+    // isolate(turn, score);
   }
 
   // console.log("turn",turn)
   // console.log("turn name", turn.name)
   // console.log("passedscore", score)
 
-  function isolate(player, score) {
-    const newScore = player.score + score;
-    let object = { ...player, score: newScore };
-    if (player.id === 1) {
-      setPlayer1(object);
-      setScore(0);
-    }
-    if (player.id === 2) {
-      setPlayer2(object);
-      setScore(0);
-    }
-    if (player.id === 3) {
-      setPlayer3(object);
-      setScore(0);
-    }
-    if (player.id === 4) {
-      setPlayer4(object);
-      setScore(0);
-    }
-  }
+//   function isolate(player, score) {
+//     const newScore = player.score + score;
+//     let object = { ...player, score: newScore };
+//     if (player.id === 1) {
+//       setPlayer1(object);
+//       setScore(0);
+//     }
+//     if (player.id === 2) {
+//       setPlayer2(object);
+//       setScore(0);
+//     }
+//     if (player.id === 3) {
+//       setPlayer3(object);
+//       setScore(0);
+//     }
+//     if (player.id === 4) {
+//       setPlayer4(object);
+//       setScore(0);
+//     }
+//   }
 
   function handleWinner(a, b, c, d) {
     console.log(a, b, c, d);
