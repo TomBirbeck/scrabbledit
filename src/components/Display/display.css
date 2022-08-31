@@ -58,22 +58,21 @@
   background-color: #6c75f3;
 }
 
-#double-word-button {
+.double-word-button {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;
   background-color: rgb(247, 228, 65);
-  /* background-color: var(--cream); */
 }
 
-#triple-word-button {
+.triple-word-button {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;
   background-color: var(--red);
 }
 
-#remove-button {
+.remove-button {
   height: 2em;
   width: 5em;
   margin: 0.3em 0 0.3em 0.8em;
@@ -81,7 +80,7 @@
   background-color: rgb(236, 127, 76);
 }
 
-#check-button {
+.check-button {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;
@@ -89,14 +88,14 @@
   /* background-color: rgb(204, 0, 255); */
 }
 
-#submit-button {
+.submit-button {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;
   background-color: rgb(93, 218, 141);
 }
 
-#clear-button {
+.clear-button {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;

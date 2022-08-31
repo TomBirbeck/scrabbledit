@@ -1,65 +1,65 @@
 #player-section {
-    background-color: var(--green2);
+  background-color: var(--green2);
 }
 
 table {
-    background-color: var(--green1);
-    margin: 1em 0 1em 0;
-    border: 8px ridge var(--cream);
-    width: 40vw;
-    height: auto;
-    color: var(--white);
-    font-size: 1.1em;
-    }
-    
-    thead tr td {
-    border-bottom: 1px solid var(--cream);
-    }
-    
-    td {
-    text-align: center;
-    }
-    
+  background-color: var(--green1);
+  margin: 1em 0 1em 0;
+  border: 8px ridge var(--cream);
+  width: 40vw;
+  height: auto;
+  color: var(--white);
+  font-size: 1.1em;
+}
+
+thead tr td {
+  border-bottom: 1px solid var(--cream);
+}
+
+td {
+  text-align: center;
+}
+
 #input-header {
-    margin: 0.5em 0 0.5em 0;
+  margin: 0.5em 0 0.5em 0;
 }
 
 #player-input-box {
-    margin: 1em 0.5em 0 0;
+  margin: 1em 0.5em 0 0;
 }
 
 #player-button {
-    height: 2em;
-    min-width: 4em;
-    margin: 0.3em;
-    border-radius: 0.4em;
-    border-color: var(--white);
-    /* background-color: rgb(255, 153, 0);   */
-    background-color: var(--blue2);
-    color: var(--white);
+  height: 2em;
+  min-width: 4em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  border-color: var(--white);
+  /* background-color: rgb(255, 153, 0);   */
+  background-color: var(--blue2);
+  color: var(--white);
 }
 
 .player-submit {
-    height: 2em;
-    margin: 0.3em;
-    border-radius: 0.4em;
-    background-color: var(--green1);
-    border-color: var(--white);
-    color: var(--white);
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: var(--green1);
+  border-color: var(--white);
+  color: var(--white);
 }
 
-#winner-button {
-    height: 2em;
-    margin: 0.3em;
-    border-radius: 0.4em;
-    background-color: gold;  
+.winner-button {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: gold;
 }
 
 #winner-text {
-    color: var(--white);
+  color: var(--white);
 }
 
 #turn-text {
-    color: var(--white);
-    margin: 0.5em 0;
+  color: var(--white);
+  margin: 0.5em 0;
 }

@@ -6,7 +6,7 @@ import './/display.css';
 import Players from '../Players';
 import { v4 as uuidv4 } from 'uuid';
 
-export default function Display({ players, SetPlayers }) {
+export default function Display() {
   const [displayWord, SetDisplayWord] = useState([]);
   const [doubleLetters, setDoubleLetters] = useState([]);
   const [tripleLetters, setTripleLetters] = useState([]);
@@ -102,7 +102,7 @@ export default function Display({ players, SetPlayers }) {
         <div id='letter-layout'>
           {displayWord.map((i, index) => {
             return (
-              <div id='letter-button-layout' key={uuidv4()}>
+              <div id='letter-button-layout' key={i}>
                 <div id='display-button' key={uuidv4()}>
                   <span key={i} style={{ fontSize: '3.2em' }}>
                     {i}
@@ -110,7 +110,7 @@ export default function Display({ players, SetPlayers }) {
                 </div>
                 <div className='checkbox-container'>
                   <button
-                    id='remove-button'
+                    className='remove-button'
                     onClick={() => {
                       deleteLetter(index);
                     }}
@@ -151,14 +151,20 @@ export default function Display({ players, SetPlayers }) {
           {doubleScore ? <h3>Double Word Score Active</h3> : null}
         </div>
         <div>
-          <button id='double-word-button' onClick={handleDoubleWordClick}>
+          <button
+            className='double-word-button'
+            onClick={handleDoubleWordClick}
+          >
             double word
           </button>
-          <button id='triple-word-button' onClick={handleTripleWordClick}>
+          <button
+            className='triple-word-button'
+            onClick={handleTripleWordClick}
+          >
             triple word
           </button>
           <button
-            id='check-button'
+            className='check-button'
             onClick={() => {
               handleWordCheck(displayWord);
             }}
@@ -166,7 +172,7 @@ export default function Display({ players, SetPlayers }) {
             Check
           </button>
           <button
-            id='submit-button'
+            className='submit-button'
             onClick={() => {
               handleWordSubmit(displayWord);
             }}
@@ -174,7 +180,7 @@ export default function Display({ players, SetPlayers }) {
             Submit
           </button>
           <button
-            id='clear-button'
+            className='clear-button'
             onClick={() => {
               handleClear();
             }}
