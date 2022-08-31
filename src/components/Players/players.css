@@ -61,4 +61,5 @@ table {
 
 #turn-text {
     color: var(--white);
+    margin: 0.5em 0;
 }

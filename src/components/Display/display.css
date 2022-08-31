@@ -6,7 +6,7 @@
 }
 
 #display-button {
-    margin: 0.5em 0.5em 0.5em 0.2em;
+    margin: 0.5em 0.5em 0.5em 0.5em;
     height: 4.5em;
     width: 4.5em;
     border-radius: 0.4em;
@@ -35,7 +35,7 @@
 }
 
 .checkboxes {
-    margin-left: 0.4em;
+    margin-left: 0.7em;
     font-size: 1em;
     color: var(--white);
 }
@@ -75,7 +75,7 @@ background-color: var(--red);
 #remove-button {
     height: 2em;
     width: 5em;
-    margin: 0.3em 0 0.3em 0.5em;
+    margin: 0.3em 0 0.3em 0.8em;
     border-radius: 0.4em;
     background-color: rgb(236, 127, 76);
     }
@@ -109,4 +109,5 @@ background-color: var(--red);
 
 #word-score {
     color: var(--white);
+    margin: 0.5em 0;
 }
