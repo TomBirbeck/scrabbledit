@@ -113,12 +113,13 @@ export default function Display() {
       setPlayer4(object);
     //   setPassScore(0);
     }
-    console.log("newscore", newScore)
+    // console.log("newscore", newScore)
 }
-  
   isolate(turn, passScore)
+//   setPassScore(0)
+// eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
-  console.log("Passcore", passScore)
+//   console.log("Passcore", passScore)
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
