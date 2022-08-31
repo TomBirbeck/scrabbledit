@@ -18,6 +18,7 @@ export default function Display({players, SetPlayers}){
     // const [mode, setMode] = useState(1)
     const [score, SetScore] = useState(0)
     const [passScore, setPassScore] = useState(0)
+    const [turn, setTurn] = useState({});
 
     function handleWordCheck(displayWord){
         let mode = 1;
@@ -89,11 +90,11 @@ export default function Display({players, SetPlayers}){
         <WordContext.Provider value = {{displayWord, SetDisplayWord}}>
         <div id="display">
         <div id="letter-layout">{displayWord.map((i, index) => { return (<div id="letter-button-layout">
-            <button id="display-button" key={i}><span style={{fontSize: "3em"}}>{i}</span></button>
+            <div id="display-button" key={i}><span style={{fontSize: "3.2em"}}>{i}</span></div>
             <div className="checkbox-container">
                 <button id="remove-button" onClick={() => {deleteLetter(index)}}>remove</button>
-            <label for="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}} style = {{accentColor: 'var(--blue1)'}}></input>Double</label>
-        <label for="triple" className="checkboxes"><input type="checkbox" name="triple" value={i} onChange={(e) => {handleChangeTriple(e)}} style = {{accentColor: 'var(--blue2)'}}></input>Triple</label>
+            <label HTMLfor="double" className="checkboxes"><input type="checkbox" name="double" value={i} onClick={(e) => {handleChangeDouble(e)}} style = {{accentColor: 'var(--blue1)'}}></input>Double</label>
+        <label HTMLfor="triple" className="checkboxes"><input type="checkbox" name="triple" value={i} onChange={(e) => {handleChangeTriple(e)}} style = {{accentColor: 'var(--blue2)'}}></input>Triple</label>
         </div>
         </div>)})}</div>
         <div className="score-mode">{tripleScore ? <h3>Triple Word Score Active</h3> : null}
@@ -107,7 +108,7 @@ export default function Display({players, SetPlayers}){
         </div>
         <h2 id="word-score"> Word score: {score} </h2>
         <ScrabbleButton/>
-        <Players playersNames={players} setPlayers = {SetPlayers} score = {passScore}/>
+        <Players score = {passScore} setScore = {setPassScore} turn = {turn} setTurn = {setTurn}/>
         </div>
         </WordContext.Provider>
     )

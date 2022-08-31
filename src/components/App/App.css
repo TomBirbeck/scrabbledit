@@ -61,7 +61,7 @@
 }
 
 #title-banner {
-  margin-top: 3em;
+  margin-left: -1em;
   background-color: var(--red);
   width: 30vw;
 }
