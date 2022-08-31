@@ -54,6 +54,12 @@
   color: var(--white);
 }
 
+@media only screen and (max-width: 900px) {
+  #instructions-container {
+    width: 80vw;
+  }
+}
+
 /* #instructions-letter-buttons {
   margin: 0.2em;
   height: 3em;
