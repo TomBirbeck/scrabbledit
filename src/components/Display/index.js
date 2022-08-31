@@ -115,7 +115,7 @@ export default function Display() {
                       deleteLetter(index);
                     }}
                   >
-                    remove
+                    Remove
                   </button>
                   <label htmlFor='double' className='checkboxes'>
                     <input
@@ -155,13 +155,13 @@ export default function Display() {
             className='double-word-button'
             onClick={handleDoubleWordClick}
           >
-            double word
+            Double Word
           </button>
           <button
             className='triple-word-button'
             onClick={handleTripleWordClick}
           >
-            triple word
+            Triple Word
           </button>
           <button
             className='check-button'
