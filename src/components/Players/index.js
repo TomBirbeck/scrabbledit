@@ -9,7 +9,6 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
 //   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
   // const [turn, setTurn] = useState({});
   const [winner, setWinner] = useState('');
-  // const [players, setPlayers] = useState([])
 
   function handlePlayer(e) {
     e.preventDefault();
@@ -18,24 +17,40 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
   }
 
   function handleSubmitPlayer1(object) {
+    if (object.length > 0){
     const playerstuff = { ...player1, name: object };
     setPlayer1(playerstuff);
     setPlayer('');
+    } else {
+        setPlayer1({...player1, name: player1.name})
+    }
   }
   function handleSubmitPlayer2(object) {
+    if (object.length > 0){
     const playerstuff = { ...player2, name: object };
     setPlayer2(playerstuff);
     setPlayer('');
+    } else {
+        setPlayer2({...player2, name: player2.name})
+    }
   }
   function handleSubmitPlayer3(object) {
+    if (object.length > 0){
     const playerstuff = { ...player3, name: object };
     setPlayer3(playerstuff);
     setPlayer('');
+    } else {
+        setPlayer3({...player3, name: player4.name})
+    }
   }
   function handleSubmitPlayer4(object) {
+    if (object.length > 0){
     const playerstuff = { ...player4, name: object };
     setPlayer4(playerstuff);
     setPlayer('');
+    } else {
+        setPlayer4({...player4, name: player4.name})
+    }
   }
   // console.log("players", players)
 
@@ -50,31 +65,6 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
     setTurn(player);
     // isolate(turn, score);
   }
-
-  // console.log("turn",turn)
-  // console.log("turn name", turn.name)
-  // console.log("passedscore", score)
-
-//   function isolate(player, score) {
-//     const newScore = player.score + score;
-//     let object = { ...player, score: newScore };
-//     if (player.id === 1) {
-//       setPlayer1(object);
-//       setScore(0);
-//     }
-//     if (player.id === 2) {
-//       setPlayer2(object);
-//       setScore(0);
-//     }
-//     if (player.id === 3) {
-//       setPlayer3(object);
-//       setScore(0);
-//     }
-//     if (player.id === 4) {
-//       setPlayer4(object);
-//       setScore(0);
-//     }
-//   }
 
   function handleWinner(a, b, c, d) {
     console.log(a, b, c, d);
@@ -99,7 +89,6 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
           <h2 id='turn-text'> It's {turn.name}'s turn to play</h2>
         ) : null}
       </div>
-      {/* <h3 id="input-header">Player input</h3> */}
       <input
         id='player-input-box'
         type='text'
