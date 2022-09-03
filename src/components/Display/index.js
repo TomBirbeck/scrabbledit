@@ -26,21 +26,25 @@ export default function Display() {
 
   function handleWordCheck(displayWord) {
     let mode = 1;
+    let extra = 0;
+    displayWord.length > 6 ? extra = 50: extra = 0; 
     doubleScore ? (mode = 2) : tripleScore ? (mode = 3) : (mode = 1);
     SetScore(
-      calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    );
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
+    ) + extra);
   }
 
   function handleWordSubmit(displayWord) {
     let mode = 1;
+    let extra = 0;
+    displayWord.length > 6 ? extra = 50: extra = 0; 
     doubleScore ? (mode = 2) : tripleScore ? (mode = 3) : (mode = 1);
     SetScore(
-      calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    );
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
+    ) + extra);
     setPassScore(
-      calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    );
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
+    ) + extra);
     SetDisplayWord([]);
     setDoubleLetters([]);
     setTripleLetters([]);
