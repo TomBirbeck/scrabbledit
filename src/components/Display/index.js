@@ -27,25 +27,28 @@ export default function Display() {
 
   function handleWordCheck(displayWord) {
     let mode = 1;
+    let mode2 = 1;
+    let mode3 = 1;
     let extra = 0;
-    allTiles ? extra = 50: extra = 0; 
-    doubleScore ? (mode = 2) : tripleScore ? (mode = 3) : (mode = 1);
+    allTiles ? extra = 50: extra = 0;
+      doubleScore ? (mode = 2) :  (mode = 1);
+      tripleScore? (mode2 = 3) : (mode2 = 1);
     SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    ) + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
   }
 
   function handleWordSubmit(displayWord) {
     let mode = 1;
+    let mode2 = 1;
+    let mode3 = 1;
     let extra = 0;
-    allTiles ? extra = 50: extra = 0; 
-    doubleScore ? (mode = 2) : tripleScore ? (mode = 3) : (mode = 1);
+    allTiles ? extra = 50: extra = 0;
+      doubleScore ? (mode = 2) :  (mode = 1);
+      tripleScore? (mode2 = 3) : (mode2 = 1);
     SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    ) + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
     setPassScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode
-    ) + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
     SetDisplayWord([]);
     setDoubleLetters([]);
     setTripleLetters([]);
@@ -62,13 +65,13 @@ export default function Display() {
 
   function handleDoubleWordClick() {
     setDoubleScore(!doubleScore);
-    setTripleScore(false);
+    // setTripleScore(false);
     // doubleScore ? setMode(2) : setMode(1)
   }
 
   function handleTripleWordClick() {
     setTripleScore(!tripleScore);
-    setDoubleScore(false);
+    // setDoubleScore(false);
     // tripleScore ? setMode(3) : setMode(1)
   }
 
@@ -180,8 +183,9 @@ console.log("extra", allTiles);
           })}
         </div>
         <div className='score-mode'>
-          {tripleScore ? <h3>Triple Word Score Active</h3> : null}
           {doubleScore ? <h3>Double Word Score Active</h3> : null}
+          {tripleScore ? <h3>Triple Word Score Active</h3> : null}
+          {allTiles ? <h3>All Tiles Used Mode Active</h3>: null}
         </div>
         <div>
           <button
