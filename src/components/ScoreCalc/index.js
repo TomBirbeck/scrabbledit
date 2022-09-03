@@ -108,7 +108,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
  for (let x = 0; x < score.length; x++){
      sum = sum + score[x];
  }
- if (word.length === 7){sum = sum + 50};
+//  if (word.length === 7){sum = sum + 50};
  return sum;
 }
 

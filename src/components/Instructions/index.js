@@ -12,7 +12,7 @@ export default function Instructions() {
           setOpen(!open);
         }}
       >
-        How to play
+        How to use
       </h2>
       <h4 style={{ fontSize: '.7em', marginLeft: '2.3em' }}>
         (Click to open and close)
@@ -52,7 +52,8 @@ export default function Instructions() {
             <li>
               Click button for{' '}
               <button className='double-word-button'>Double Word</button>
-              <button className='triple-word-button'>Triple Word</button> if
+              <button className='triple-word-button'>Triple Word</button>
+              <button className='all-tiles-button'>All Tiles Used</button> if
               required.
             </li>
             <li>

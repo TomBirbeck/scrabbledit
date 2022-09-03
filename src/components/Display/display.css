@@ -16,6 +16,17 @@
   box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.39);
 }
 
+/* @media only screen and (max-width: 500px) {
+  #display-button {
+    scale: 0.6;
+    margin: 0.2em;
+  }
+  .remove-button {
+    scale: 0.8;
+  }
+  
+} */
+
 #letter-layout {
   display: flex;
   justify-content: center;
@@ -72,6 +83,13 @@
   background-color: var(--red);
 }
 
+.all-tiles-button {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: var(--blue1);
+}
+
 .remove-button {
   height: 2em;
   width: 5em;
@@ -103,7 +121,8 @@
 }
 
 .score-mode {
-  height: 3em;
+  height: 5em;
+  margin: 0.5em 0;
   color: var(--white);
 }
 
