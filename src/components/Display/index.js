@@ -206,7 +206,7 @@ console.log("extra", allTiles);
               setAllTiles(!allTiles);
             }}
           >
-            7 tiles used
+            All Tiles Used
           </button>
           <button
             className='check-button'
