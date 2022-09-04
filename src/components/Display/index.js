@@ -138,6 +138,7 @@ export default function Display() {
     }
 }
   isolate(turn, passScore)
+  setTurn({})
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
 
