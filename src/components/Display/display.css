@@ -76,7 +76,21 @@
   background-color: rgb(247, 228, 65);
 }
 
+.double-word-extra {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: rgb(247, 228, 65);
+}
+
 .triple-word-button {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: var(--red);
+}
+
+.triple-word-extra {
   height: 2em;
   margin: 0.3em;
   border-radius: 0.4em;
@@ -121,7 +135,8 @@
 }
 
 .score-mode {
-  height: 5em;
+  min-height: 5em;
+  max-height: fit-content;
   margin: 0.5em 0;
   color: var(--white);
 }

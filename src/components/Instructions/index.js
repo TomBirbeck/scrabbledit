@@ -56,6 +56,13 @@ export default function Instructions() {
               <button className='all-tiles-button'>All Tiles Used</button> if
               required.
             </li>
+            <li>If your word crosses more than 1 double word square, click both the <button className='double-word-button'>Double Word</button>
+            and <button className='double-word-extra'>X2</button>.
+            </li>
+            <li>
+            If your score crosses more than 1 triple word square, click the <button className='triple-word-button'>Triple Word</button>
+            and the <button className='triple-word-extra'>X2</button> for 2 triple word squares and also click the <button className='triple-word-extra'>X3</button> if you cross 3.
+            </li>
             <li>
               You can then either click to check the score of the word by
               clicking the <button className='check-button'>Check</button>{' '}
