@@ -61,6 +61,12 @@ td {
   border-radius: 0.4em;
   background-color: gold;
 }
+.final-score-button {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: gold;
+}
 
 #winner-text {
   color: var(--white);

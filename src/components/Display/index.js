@@ -16,6 +16,7 @@ export default function Display() {
   const [doubleTripleScore, setDoubleTripleScore] = useState(false);
   const [tripleTripleScore, setTripleTripleScore] = useState(false);
   const [allTiles, setAllTiles] = useState(false);
+  const [finalScoreMode, setFinalScoreMode] = useState(false);
   const [score, SetScore] = useState(0);
   const [passScore, setPassScore] = useState(0);
   const [turn, setTurn] = useState({});
@@ -197,6 +198,7 @@ export default function Display() {
           })}
         </div>
         <div className='score-mode'>
+          {finalScoreMode ? <h2>Final Score Mode</h2> : null}
           {doubleScore ? <h3>Double Word Score Active</h3> : null}
           {doubleDoubleScore ? <h3>Double Double Word Score Active</h3>: null}
           {tripleScore ? <h3>Triple Word Score Active</h3> : null}
@@ -268,6 +270,8 @@ export default function Display() {
           setPlayer3={setPlayer3}
           player4={player4}
           setPlayer4={setPlayer4}
+          finalScoreMode = {finalScoreMode}
+          setFinalScoreMode = {setFinalScoreMode}
         />
       </div>
     </WordContext.Provider>

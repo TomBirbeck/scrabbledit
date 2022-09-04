@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './players.css';
 
-export default function Players({ score, setScore, turn, setTurn, player1, setPlayer1, player2, setPlayer2, player3, setPlayer3, player4, setPlayer4 }) {
+export default function Players({ score, setScore, turn, setTurn, player1, setPlayer1, player2, setPlayer2, player3, setPlayer3, player4, setPlayer4, finalScoreMode, setFinalScoreMode }) {
   const [player, setPlayer] = useState('');
 //   const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
 //   const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
@@ -200,6 +200,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
         )})}
                 </tbody> */}
       </table>
+      <button className='final-score-button' onClick={() => {setFinalScoreMode(!finalScoreMode)}}>Final Score Mode</button>
       <button
         className='winner-button'
         onClick={() => handleWinner(player1, player2, player3, player4)}
