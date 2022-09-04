@@ -9,16 +9,17 @@ export default function Instructions() {
       <h2
         style={{ marginLeft: '1em' }}
         onClick={() => {
-          setOpen(!open);
+          setOpen(true);
         }}
       >
         How to use
       </h2>
-      <h4 style={{ fontSize: '.7em', marginLeft: '2.3em' }}>
-        (Click to open and close)
+      <h4 style={{ fontSize: '.7em', marginLeft: '2.3em'}}>
+        (Click to open)
       </h4>
       {open ? (
         <div id='instructions-container'>
+          <button id='close-instructions' onClick={() => {setOpen(false)}}>Close X</button>
           <ol id='instructions-list'>
             <li className='instruction-head'>To change a player's name:</li>
             <li>

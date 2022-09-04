@@ -1,5 +1,5 @@
 #instructions {
-  width: 100vw;
+  width: 80vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -52,6 +52,13 @@
   /* background-color: rgb(255, 153, 0);   */
   background-color: var(--blue2);
   color: var(--white);
+}
+
+#close-instructions {
+  height: 2em;
+  margin: 0.3em;
+  border-radius: 0.4em;
+  background-color: var(--blue2);
 }
 
 @media only screen and (max-width: 900px) {
