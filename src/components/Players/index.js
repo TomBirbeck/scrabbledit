@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './players.css';
 
-export default function Players({ score, setScore, turn, setTurn, player1, setPlayer1, player2, setPlayer2, player3, setPlayer3, player4, setPlayer4, finalScoreMode, setFinalScoreMode }) {
+export default function Players({ score, setScore, turn, setTurn, player1, setPlayer1, player2, setPlayer2, player3, setPlayer3, player4, setPlayer4, finalScoreMode, setFinalScoreMode, finalTiles, finalScore, setFinalScore }) {
   const [player, setPlayer] = useState('');
 //   const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
 //   const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
@@ -66,16 +66,32 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
     // isolate(turn, score);
   }
 
-  function handleWinner(a, b, c, d) {
-    console.log(a, b, c, d);
-    let players = [a, b, c, d];
-    console.log('win players', players);
-    let winner = players.sort((a, b) => {
+  // function handleWinner(a, b, c, d) {
+  //   // console.log(a, b, c, d);
+  //   const players = [a, b, c, d];
+  //   // console.log('win players', players);
+  //   const winner = players.sort((a, b) => {
+  //     return b.score - a.score;
+  //   })[0];
+  //   // console.log('winner', winner);
+  //   finalScores(a, b, c, d, finalTiles)
+  //   setWinner(winner.name);
+  // }
+
+  function handleWinner(a, b, c, d, finalTiles) {
+    const finalA = a.score - finalTiles[0];
+    const finalB = b.score - finalTiles[1];
+    const finalC = c.score - finalTiles[2];
+    const finalD = d.score - finalTiles[3];
+    const players = [{name: a.name, score: finalA}, {name: b.name, score: finalB}, {name: c.name, score: finalC}, {name: d.name, score: finalD}];
+    const winner = players.sort((a, b) => {
       return b.score - a.score;
     })[0];
-    console.log('winner', winner);
-    setWinner(winner.name);
-  }
+    setWinner(winner.name)
+
+    console.log("final scores", finalA, finalB, finalC, finalD);
+    console.log("winner", winner);
+}
 
   return (
     <section id='player-section'>
@@ -135,6 +151,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
           <tr>
             <td>Player</td>
             <td>Score</td>
+            <td>Spare Tiles</td>
           </tr>
         </thead>
         <tbody>
@@ -150,6 +167,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
               </button>
             </td>
             <td>{player1.score}</td>
+            <td>{finalTiles[0]}</td>
           </tr>
           <tr key={player2.name}>
             <td>
@@ -163,6 +181,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
               </button>
             </td>
             <td>{player2.score}</td>
+            <td>{finalTiles[1]}</td>
           </tr>
           <tr key={player3.name}>
             <td>
@@ -176,6 +195,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
               </button>
             </td>
             <td>{player3.score}</td>
+            <td>{finalTiles[2]}</td>
           </tr>
           <tr key={player4.name}>
             <td>
@@ -189,6 +209,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
               </button>
             </td>
             <td>{player4.score}</td>
+            <td>{finalTiles[3]}</td>
           </tr>
         </tbody>
         {/* <tbody>
@@ -203,7 +224,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
       <button className='final-score-button' onClick={() => {setFinalScoreMode(!finalScoreMode)}}>Final Score Mode</button>
       <button
         className='winner-button'
-        onClick={() => handleWinner(player1, player2, player3, player4)}
+        onClick={() => handleWinner(player1, player2, player3, player4, finalTiles)}
       >
         Winner
       </button>

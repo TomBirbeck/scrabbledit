@@ -12,7 +12,7 @@ export default function Instructions() {
           setOpen(true);
         }}
       >
-        How to use
+        Instructions for use
       </h2>
       <h4 style={{ fontSize: '.7em', marginLeft: '2.3em'}}>
         (Click to open)
