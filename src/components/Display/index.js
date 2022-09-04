@@ -10,13 +10,12 @@ export default function Display() {
   const [displayWord, SetDisplayWord] = useState([]);
   const [doubleLetters, setDoubleLetters] = useState([]);
   const [tripleLetters, setTripleLetters] = useState([]);
-  const [tripleScore, setTripleScore] = useState(false);
   const [doubleScore, setDoubleScore] = useState(false);
+  const [doubleDoubleScore, setDoubleDoubleScore] = useState(false);
+  const [tripleScore, setTripleScore] = useState(false);
+  const [doubleTripleScore, setDoubleTripleScore] = useState(false);
+  const [tripleTripleScore, setTripleTripleScore] = useState(false);
   const [allTiles, setAllTiles] = useState(false);
-  // const [isChecked, setIsChecked] = useState(false)
-  // const refDouble = useRef()
-  // const refTriple = useRef()
-  // const [mode, setMode] = useState(1)
   const [score, SetScore] = useState(0);
   const [passScore, setPassScore] = useState(0);
   const [turn, setTurn] = useState({});
@@ -29,12 +28,17 @@ export default function Display() {
     let mode = 1;
     let mode2 = 1;
     let mode3 = 1;
+    let mode4 = 1;
+    let mode5 = 1;
     let extra = 0;
     allTiles ? extra = 50: extra = 0;
-      doubleScore ? (mode = 2) :  (mode = 1);
-      tripleScore? (mode2 = 3) : (mode2 = 1);
+    doubleScore ? (mode = 2) :  (mode = 1);
+    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
+    tripleScore ? (mode3 = 3) : (mode3 = 1);
+    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
+    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
     SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
   }
 
   function handleWordSubmit(displayWord) {
@@ -55,7 +59,10 @@ export default function Display() {
     SetScore(0);
     // setPassScore(0)
     setDoubleScore(false);
+    setDoubleDoubleScore(false)
     setTripleScore(false);
+    setDoubleTripleScore(false);
+    setTripleTripleScore(false);
     setAllTiles(false);
   }
 
@@ -99,7 +106,10 @@ export default function Display() {
     SetScore(0);
     setPassScore(0);
     setDoubleScore(false);
+    setDoubleDoubleScore(false);
     setTripleScore(false);
+    setDoubleTripleScore(false);
+    setTripleTripleScore(false);
     setAllTiles(false);
   }
 
@@ -130,7 +140,6 @@ export default function Display() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
 //   console.log("Passcore", passScore)
-console.log("extra", allTiles);
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
@@ -184,7 +193,10 @@ console.log("extra", allTiles);
         </div>
         <div className='score-mode'>
           {doubleScore ? <h3>Double Word Score Active</h3> : null}
+          {doubleDoubleScore ? <h3>Double Double Word Score Active</h3>: null}
           {tripleScore ? <h3>Triple Word Score Active</h3> : null}
+          {doubleTripleScore ? <h3>Double Triple Word Score Active</h3>: null}
+          {tripleTripleScore ? <h3>Triple Triple Word Score Active</h3>: null}
           {allTiles ? <h3>All Tiles Used Mode Active</h3>: null}
         </div>
         <div>
@@ -194,12 +206,15 @@ console.log("extra", allTiles);
           >
             Double Word
           </button>
+          <button className='double-word-extra' onClick={() => {setDoubleDoubleScore(!doubleDoubleScore)}}>X2</button>
           <button
             className='triple-word-button'
             onClick={handleTripleWordClick}
           >
             Triple Word
           </button>
+          <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}}>X2</button>
+          <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>x3</button>
           <button
             className='all-tiles-button'
             onClick={() => {

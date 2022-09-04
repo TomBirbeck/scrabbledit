@@ -9,16 +9,17 @@ export default function Instructions() {
       <h2
         style={{ marginLeft: '1em' }}
         onClick={() => {
-          setOpen(!open);
+          setOpen(true);
         }}
       >
         How to use
       </h2>
-      <h4 style={{ fontSize: '.7em', marginLeft: '2.3em' }}>
-        (Click to open and close)
+      <h4 style={{ fontSize: '.7em', marginLeft: '2.3em'}}>
+        (Click to open)
       </h4>
       {open ? (
         <div id='instructions-container'>
+          <button id='close-instructions' onClick={() => {setOpen(false)}}>Close X</button>
           <ol id='instructions-list'>
             <li className='instruction-head'>To change a player's name:</li>
             <li>
@@ -55,6 +56,13 @@ export default function Instructions() {
               <button className='triple-word-button'>Triple Word</button>
               <button className='all-tiles-button'>All Tiles Used</button> if
               required.
+            </li>
+            <li>If your word crosses more than 1 double word square, click both the <button className='double-word-button'>Double Word</button>
+            and <button className='double-word-extra'>X2</button>.
+            </li>
+            <li>
+            If your score crosses more than 1 triple word square, click the <button className='triple-word-button'>Triple Word</button>
+            and the <button className='triple-word-extra'>X2</button> for 2 triple word squares and also click the <button className='triple-word-extra'>X3</button> if you cross 3.
             </li>
             <li>
               You can then either click to check the score of the word by
