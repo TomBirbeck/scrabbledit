@@ -45,14 +45,19 @@ export default function Display() {
     let mode = 1;
     let mode2 = 1;
     let mode3 = 1;
+    let mode4 = 1;
+    let mode5 = 1;
     let extra = 0;
     allTiles ? extra = 50: extra = 0;
-      doubleScore ? (mode = 2) :  (mode = 1);
-      tripleScore? (mode2 = 3) : (mode2 = 1);
+    doubleScore ? (mode = 2) :  (mode = 1);
+    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
+    tripleScore ? (mode3 = 3) : (mode3 = 1);
+    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
+    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
     SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
     setPassScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 + extra);
+      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 *mode5 + extra);
     SetDisplayWord([]);
     setDoubleLetters([]);
     setTripleLetters([]);
