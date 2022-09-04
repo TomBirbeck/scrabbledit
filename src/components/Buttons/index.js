@@ -39,7 +39,7 @@ export default function ScrabbleButton() {
   }
 
   return (
-    <div>
+    <div id='letter-button-con'>
       {letters.map((l) => {
         return (
           <button

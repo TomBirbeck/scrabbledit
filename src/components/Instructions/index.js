@@ -82,7 +82,13 @@ export default function Instructions() {
             </li>
             <li className='instruction-head'>To determine the winner:</li>
             <li>
-              Click on the <button className='winner-button'>Winner</button>{' '}
+              Click the <button className='final-score-button'>Final Score Mode</button> button below the table. Then enter the left over tiles of players in order from 1 - 4. You do not need to select turns here.
+            </li>
+            <li>
+              If a player has no tiles left, enter only the <button className='letter-buttons'>_</button> character.
+            </li>
+            <li>
+              Then click on the <button className='winner-button'>Winner</button>{' '}
               button below the table.
             </li>
           </ol>
