@@ -79,10 +79,37 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
   // }
 
   function handleWinner(a, b, c, d, finalTiles) {
-    const finalA = a.score - finalTiles[0];
-    const finalB = b.score - finalTiles[1];
-    const finalC = c.score - finalTiles[2];
-    const finalD = d.score - finalTiles[3];
+    const extra = finalTiles.reduce(function (a, b) {
+      return a + b;
+    }, 0);
+    console.log("extra", extra)
+    let finalA = 0;
+    let finalB = 0;
+    let finalC = 0;
+    let finalD = 0;
+    if (finalTiles[0] === 0) {
+     finalA = (a.score - finalTiles[0]) + extra;}
+    if (finalTiles[0] !== 0) {
+      finalA = (a.score - finalTiles[0])
+    }
+    if (finalTiles[1] === 0) {
+     finalB = (b.score - finalTiles[1]) + extra;}
+    if (finalTiles[1] !== 0) {
+      finalB = (b.score - finalTiles[1])
+    }
+    if (finalTiles[2] === 0) {
+     finalC = (c.score - finalTiles[2]) + extra;}
+    if (finalTiles[0] !== 0) {
+      finalC = (c.score - finalTiles[2])
+    }
+    if (finalTiles[3] === 0) {
+     finalD = (d.score - finalTiles[3]) + extra;}
+    if (finalTiles[3] !== 0) {
+      finalD = (d.score - finalTiles[3])
+    }
+    // const finalB = b.score - finalTiles[1];
+    // const finalC = c.score - finalTiles[2];
+    // const finalD = d.score - finalTiles[3];
     const players = [{name: a.name, score: finalA}, {name: b.name, score: finalB}, {name: c.name, score: finalC}, {name: d.name, score: finalD}];
     const winner = players.sort((a, b) => {
       return b.score - a.score;
