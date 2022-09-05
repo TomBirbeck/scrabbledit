@@ -96,29 +96,37 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
      setFinalA(finalA);
     if (finalTiles[0] !== 0 && (finalTiles[0])) {
       finalA = (a.score - finalTiles[0])
-      setFinalA(finalA);
-    } else {setFinalA(0)}
+      if (!Number.isNaN(finalA)){
+        setFinalA(finalA);}
+      if (Number.isNaN(finalA)){setFinalA(0)}
+      }
     if (finalTiles[1] === 0) {
      finalB = (b.score - finalTiles[1]) + extra;}
      setFinalB(finalB);
     if (finalTiles[1] !== 0 && (finalTiles[1])) {
       finalB = (b.score - finalTiles[1])
-      setFinalB(finalB);
-    } else {setFinalB(0)};
+      if (!Number.isNaN(finalB)){
+        setFinalB(finalB);}
+        if (Number.isNaN(finalB)){setFinalB(0)}
+    };
     if (finalTiles[2] === 0) {
      finalC = (c.score - finalTiles[2]) + extra;}
      setFinalC(finalC);
     if (finalTiles[2] !== 0 && (finalTiles[2])) {
       finalC = (c.score - finalTiles[2])
-      setFinalC(finalC);
-    } else {setFinalC(0)};
+      if (!Number.isNaN(finalC)){
+        setFinalC(finalC);}
+        if (Number.isNaN(finalC)){setFinalC(0)}
+    };
     if (finalTiles[3] === 0) {
      finalD = (d.score - finalTiles[3]) + extra;}
      setFinalD(finalD);
-    if (finalTiles[3] !== 0 && (finalTiles[3])) {
+    if (finalTiles[3] !== 0) {
       finalD = (d.score - finalTiles[3])
-      setFinalD(finalD);
-    } else {setFinalD(0)};
+      if (!Number.isNaN(finalD)){
+      setFinalD(finalD);}
+      if (Number.isNaN(finalD)){setFinalD(0)}
+    } 
     // const finalB = b.score - finalTiles[1];
     // const finalC = c.score - finalTiles[2];
     // const finalD = d.score - finalTiles[3];
