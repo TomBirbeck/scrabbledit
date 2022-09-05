@@ -2,6 +2,12 @@
   background-color: var(--green2);
 }
 
+#table-container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
 
 table {
   background-color: var(--green1);
@@ -15,7 +21,14 @@ table {
 @media only screen and (max-width: 800px) {
   table {
     width: 90vw;
-    margin-left: 4.5%;
+    /* margin-left: 4.5%; */
+  }
+  
+}
+@media only screen and (max-width: 1400px) {
+  table {
+    width: 50vw;
+    /* margin-left: 4.5%; */
   }
   
 }

@@ -81,6 +81,9 @@
   #title-banner {
     padding: 0;
   }
+  #title {
+    font-size: 3.2em;
+  }
   #motto {
     font-size: 1em;
   }

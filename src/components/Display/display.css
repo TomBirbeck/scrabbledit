@@ -32,7 +32,7 @@
   justify-content: center;
   flex-wrap: wrap;
   min-height: 25vh;
-  width: 100vw;
+  width: 90vw;
 }
 
 #letter-button-layout {
@@ -139,9 +139,41 @@
   max-height: fit-content;
   margin: 0.5em 0;
   color: var(--white);
+  width: 90vw
 }
 
 #word-score {
   color: var(--white);
   margin: 0.5em 0;
+}
+
+#letters {
+  font-size: 3.2em;
+}
+
+@media only screen and (max-width: 600px) {
+  #display-button {
+    margin: 0.2em;
+    height: 3em;
+    width: 3em;
+    border-radius: 0.4em;
+    background-color: var(--cream);
+    color: var(--green2);
+    font-weight: 700;
+    box-shadow: 4px 4px 4px 1px rgba(0, 0, 0, 0.39);
+  }
+
+  #letters {
+    font-size: 2em;
+  }
+
+  .remove-button {
+    scale: 0.8;
+    margin-left: 0.5em;
+  }
+
+  #letter-button-layout {
+    align-items: center;
+  }
+  
 }

@@ -65,6 +65,9 @@
   #instructions-container {
     width: 80vw;
   }
+  #instructions {
+    font-size: 0.8em;
+  }
 }
 
 /* #instructions-letter-buttons {

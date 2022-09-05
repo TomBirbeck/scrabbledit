@@ -151,8 +151,9 @@ export default function Display() {
             return (
               <div id='letter-button-layout' key={i}>
                 <div id='display-button' key={uuidv4()}>
-                  <span key={i} style={{ fontSize: '3.2em' }}>
-                    {i}
+                  <span id='letters' key={i}>
+                   {/* style={{ fontSize: '3.2em' }}> */}
+                     {i}
                   </span>
                 </div>
                 <div className='checkbox-container'>
