@@ -14,8 +14,8 @@ table {
 }
 @media only screen and (max-width: 800px) {
   table {
-    width: 80vw;
-    margin-left: 10%;
+    width: 90vw;
+    margin-left: 4.5%;
   }
   
 }
