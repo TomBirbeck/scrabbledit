@@ -7,3 +7,14 @@
   color: var(--green2);
   font-weight: 800;
 }
+
+@media only screen and (max-width: 500px) {
+  #letter-button-con {
+    width: 95vw;
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+  }
+  
+}

@@ -16,6 +16,7 @@ export default function Display() {
   const [doubleTripleScore, setDoubleTripleScore] = useState(false);
   const [tripleTripleScore, setTripleTripleScore] = useState(false);
   const [allTiles, setAllTiles] = useState(false);
+  const [finalScoreMode, setFinalScoreMode] = useState(false);
   const [score, SetScore] = useState(0);
   const [passScore, setPassScore] = useState(0);
   const [turn, setTurn] = useState({});
@@ -23,6 +24,7 @@ export default function Display() {
   const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
   const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
+  const [finalTiles, setFinalTiles] = useState([]);
 
   function handleWordCheck(displayWord) {
     let mode = 1;
@@ -42,6 +44,7 @@ export default function Display() {
   }
 
   function handleWordSubmit(displayWord) {
+    if (finalScoreMode === false) {
     let mode = 1;
     let mode2 = 1;
     let mode3 = 1;
@@ -58,11 +61,16 @@ export default function Display() {
       (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
     setPassScore(
       (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 *mode5 + extra);
-    SetDisplayWord([]);
+    }
+    if (finalScoreMode === true) {
+      let scores = finalTiles;
+      scores.push((calculateScrabbleScore(displayWord, doubleLetters, tripleLetters)))
+      setFinalTiles(scores)
+    }
+      SetDisplayWord([]);
     setDoubleLetters([]);
     setTripleLetters([]);
     SetScore(0);
-    // setPassScore(0)
     setDoubleScore(false);
     setDoubleDoubleScore(false)
     setTripleScore(false);
@@ -77,19 +85,14 @@ export default function Display() {
 
   function handleDoubleWordClick() {
     setDoubleScore(!doubleScore);
-    // setTripleScore(false);
-    // doubleScore ? setMode(2) : setMode(1)
   }
 
   function handleTripleWordClick() {
     setTripleScore(!tripleScore);
-    // setDoubleScore(false);
-    // tripleScore ? setMode(3) : setMode(1)
   }
 
   function handleChangeDouble(e) {
     let doubles = [];
-    // setIsChecked(e.target.checked);
     e.target.checked === true && e.target.name === 'double'
       ? doubles.push(e.target.value)
       : (doubles = []);
@@ -97,7 +100,6 @@ export default function Display() {
   }
   function handleChangeTriple(e) {
     let triples = [];
-    // setIsChecked(e.target.checked);
     e.target.checked === true && e.target.name === 'triple'
       ? triples.push(e.target.value)
       : (triples = []);
@@ -124,27 +126,22 @@ export default function Display() {
     let object = { ...player, score: newScore };
     if (player.id === 1) {
       setPlayer1(object);
-    //   setPassScore(0);
     }
     if (player.id === 2) {
       setPlayer2(object);
-    //   setPassScore(0);
     }
     if (player.id === 3) {
       setPlayer3(object);
-    //   setPassScore(0);
     }
     if (player.id === 4) {
       setPlayer4(object);
-    //   setPassScore(0);
     }
-    // console.log("newscore", newScore)
 }
   isolate(turn, passScore)
-//   setPassScore(0)
+  setTurn({})
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
-//   console.log("Passcore", passScore)
+
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
@@ -197,6 +194,7 @@ export default function Display() {
           })}
         </div>
         <div className='score-mode'>
+          {finalScoreMode ? <h2>Final Score Mode</h2> : null}
           {doubleScore ? <h3>Double Word Score Active</h3> : null}
           {doubleDoubleScore ? <h3>Double Double Word Score Active</h3>: null}
           {tripleScore ? <h3>Triple Word Score Active</h3> : null}
@@ -268,6 +266,11 @@ export default function Display() {
           setPlayer3={setPlayer3}
           player4={player4}
           setPlayer4={setPlayer4}
+          finalScoreMode = {finalScoreMode}
+          setFinalScoreMode = {setFinalScoreMode}
+          finalTiles = {finalTiles}
+          // finalScore = {finalScore}
+          // setFinalScore = {setFinalScore}
         />
       </div>
     </WordContext.Provider>

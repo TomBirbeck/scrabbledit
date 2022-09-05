@@ -71,35 +71,35 @@
 
 .double-word-button {
   height: 2em;
-  margin: 0.3em;
+  margin: 0.3em 0.1em 0.3em 0.3em;
   border-radius: 0.4em;
   background-color: rgb(247, 228, 65);
 }
 
 .double-word-extra {
   height: 2em;
-  margin: 0.3em;
+  margin: 0.3em 0.3em 0.3em 0.1em;
   border-radius: 0.4em;
   background-color: rgb(247, 228, 65);
 }
 
 .triple-word-button {
   height: 2em;
-  margin: 0.3em;
+  margin: 0.3em 0.1em 0.3em 0.3em;
   border-radius: 0.4em;
   background-color: var(--red);
 }
 
 .triple-word-extra {
   height: 2em;
-  margin: 0.3em;
+  margin: 0.3em 0.1em 0.3em 0.1em;;
   border-radius: 0.4em;
   background-color: var(--red);
 }
 
 .all-tiles-button {
   height: 2em;
-  margin: 0.3em;
+  margin: 0.3em 0.3em 0.3em 0.5em;
   border-radius: 0.4em;
   background-color: var(--blue1);
 }
