@@ -197,6 +197,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
       >
         Player 4
       </button>
+      <section id='table-container'>
       <table>
         <thead>
           <tr>
@@ -277,6 +278,7 @@ export default function Players({ score, setScore, turn, setTurn, player1, setPl
         )})}
                 </tbody> */}
       </table>
+      </section>
       <button className='final-score-button' onClick={() => {setFinalScoreMode(!finalScoreMode)}}>Final Score Mode</button>
       <button
         className='winner-button'
