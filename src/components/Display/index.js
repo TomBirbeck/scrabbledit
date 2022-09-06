@@ -149,9 +149,9 @@ export default function Display() {
         <div id='letter-layout'>
           {displayWord.map((i, index) => {
             return (
-              <div id='letter-button-layout' key={i}>
+              <div id='letter-button-layout' key={i + index}>
                 <div id='display-button' key={uuidv4()}>
-                  <span id='letters' key={i}>
+                  <span id='letters' key={uuidv4()}>
                    {/* style={{ fontSize: '3.2em' }}> */}
                      {i}
                   </span>
