@@ -30,6 +30,19 @@ table {
     /* margin-left: 4.5%; */
   }
 }
+@media only screen and (max-width: 350px) {
+  table {
+    width: 90vw;
+    /* margin-left: 4.5%; */
+  }
+  #player-button {
+    padding: 0 0.02em;
+    /* font-size: 0.6em; */
+    width: fit-content;
+  }
+}
+
+
 thead tr td {
   border-bottom: 1px solid var(--cream);
 }
