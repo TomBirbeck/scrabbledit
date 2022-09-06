@@ -92,7 +92,7 @@
 
 .triple-word-extra {
   height: 2em;
-  margin: 0.3em 0.1em 0.3em 0.1em;;
+  margin: 0.3em 0.1em 0.3em 0.1em;
   border-radius: 0.4em;
   background-color: var(--red);
 }
@@ -139,7 +139,7 @@
   max-height: fit-content;
   margin: 0.5em 0;
   color: var(--white);
-  width: 90vw
+  width: 80vw;
 }
 
 #word-score {
@@ -178,5 +178,4 @@
   #letter-button-layout {
     align-items: center;
   }
-  
 }
