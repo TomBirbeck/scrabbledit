@@ -8,7 +8,6 @@
   justify-content: center;
 }
 
-
 table {
   background-color: var(--green1);
   margin: 1em 0 1em 0;
@@ -23,14 +22,12 @@ table {
     width: 90vw;
     /* margin-left: 4.5%; */
   }
-  
 }
 @media only screen and (max-width: 1400px) {
   table {
     width: 50vw;
     /* margin-left: 4.5%; */
   }
-  
 }
 
 thead tr td {
@@ -89,4 +86,6 @@ td {
 #turn-text {
   color: var(--white);
   margin: 0.5em 0;
+  /* width: 80vw; */
+  /* justify-self: center; */
 }

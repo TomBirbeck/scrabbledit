@@ -8,10 +8,16 @@
       "type": "image/x-icon"
     },
     {
+      "src": "logo143.png",
+      "type": "image/png",
+      "sizes": "143x143",
+      "purpose": "any"
+    },
+    {
       "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "maskable"
+      "purpose": "maskable any"
     },
     {
       "src": "logo512.png",
