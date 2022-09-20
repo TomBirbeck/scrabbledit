@@ -187,7 +187,7 @@ export default function Players({
     <section id='player-section'>
       <div>
         {winner.length > 0 ? (
-          <h2 id='winner-text'>{winner} is the winnner. Congratulations!</h2>
+          <h2 id='winner-text'>{winner} is the winner. Congratulations!</h2>
         ) : null}
       </div>
       <div style={{ margin: '0' }}>
