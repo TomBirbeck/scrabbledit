@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# SCRABBLEDIT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Author
+ Tom Birbeck [GitHub](https://github.com/TomBirbeck) / [LinkedIn](https://www.linkedin.com/in/tom-birbeck)
 
-## Available Scripts
+<div align='center'>
+<img src='./public/scrabbledit.PNG' />
+</div>
 
-In the project directory, you can run:
+# Intro
 
-### `npm start`
+An app that allows up to four players to input a scrabble word, check the score and then submit and track their scores for a full game. The app also has a built in final score mode where players can submit their left over tiles and a button to calculate the winner.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# How to use
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The app comes with a full set of instructions on how to use it.
 
-### `npm test`
+<div align='center'>
+<img src='./public/scrabbledit-instructions.PNG' />
+</div>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# How the app works
 
-### `npm run build`
+## Components:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### App
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Currently holds no states. This is where the title, motto and display are rendered and useContext is used to allow the whole app to access the word a player inputs.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Buttons
 
-### `npm run eject`
+This component maps over an array of letters to produce a button that when clicked sets the word context, allowing the users input to be rendered on screen in the Display component.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Display
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This is the main hub of the app. It contains the states and functions that track the multpliers used for letters and words. On clicking the 'Check' or 'Submit' buttons, the basic word is sent to the ScoreCalc component along with the double and triple letters, the word multipliers are then done inside the handleWordCheck and handleWordSubmit functions located in the Display component.
+The word and score for that word is rendered in this component, as is the text to display any multiplier modes.
+This component is also responsible for the removal of any letters or the complete clearing of a word
+It also contains the states for the players, turns, final score mode and final tiles that all passed down for use in the Players component.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### Instructions
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+On Click supplies a pop-up div that contains all the instructions on how to use the app.
 
-## Learn More
+#### Players
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This component is responsible for rendering the scoreboard, which player's turn it currently is and calculating the winner using the handleWinner function.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### ScoreCalc
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This is a function that takes in the basic word, double letters and triple letters and calculates the score based on the scrabble letter point scoring system.
