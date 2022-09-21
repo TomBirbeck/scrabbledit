@@ -13,7 +13,7 @@ function App() {
             <h1 id='title'>Scrabbledit</h1>
           </div>
         </div>
-        <h3 id='motto'>We can't trust Barry with the scores again</h3>
+        <h2 id='motto'>We can't trust Barry with the scores again</h2>
         <Display />
       </div>
     </WordContext.Provider>

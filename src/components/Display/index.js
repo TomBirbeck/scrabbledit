@@ -252,7 +252,7 @@ export default function Display() {
             Clear
           </button>
         </div>
-        <h2 id='word-score'> Word score: {score} </h2>
+        <h3 id='word-score'> Word score: {score} </h3>
         <ScrabbleButton />
         <Players
         //   score={passScore}
