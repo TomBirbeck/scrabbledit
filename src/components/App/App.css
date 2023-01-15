@@ -61,11 +61,12 @@
 }
 
 #title-banner {
-  margin-top: 1em;
+  margin-top: 1.5em;
   /* margin-left: -1em; */
   background-color: var(--red);
   padding-left: 4em;
   padding-right: 4em;
+  border-radius: 0.5rem;
 }
 
 #title {
