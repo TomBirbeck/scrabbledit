@@ -3,7 +3,9 @@
 }
 
 #table-container {
-  width: 100vw;
+  width: 95vw;
+  align-self: center;
+  justify-self: center;
   display: flex;
   justify-content: center;
 }
