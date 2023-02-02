@@ -2,8 +2,6 @@ import { useState } from 'react';
 import './players.css';
 
 export default function Players({
-  score,
-  setScore,
   turn,
   setTurn,
   player1,
@@ -17,15 +15,8 @@ export default function Players({
   finalScoreMode,
   setFinalScoreMode,
   finalTiles,
-  finalScore,
-  setFinalScore,
 }) {
   const [player, setPlayer] = useState('');
-  //   const [player1, setPlayer1] = useState({ id: 1, name: 'player 1', score: 0 });
-  //   const [player2, setPlayer2] = useState({ id: 2, name: 'player 2', score: 0 });
-  //   const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
-  //   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
-  // const [turn, setTurn] = useState({});
   const [winner, setWinner] = useState('');
   const [finalA, setFinalA] = useState(0);
   const [finalB, setFinalB] = useState(0);
@@ -74,31 +65,10 @@ export default function Players({
       setPlayer4({ ...player4, name: player4.name });
     }
   }
-  // console.log("players", players)
-
-  // function handleSubmitPlayer(object){
-  // const playerstuff = players;
-  //  if (object) {playerstuff.push({name: object, score: 0})};
-  //   setPlayers(playerstuff);
-  //   setPlayer("");
-  // }
 
   function playerTurn(player) {
     setTurn(player);
-    // isolate(turn, score);
   }
-
-  // function handleWinner(a, b, c, d) {
-  //   // console.log(a, b, c, d);
-  //   const players = [a, b, c, d];
-  //   // console.log('win players', players);
-  //   const winner = players.sort((a, b) => {
-  //     return b.score - a.score;
-  //   })[0];
-  //   // console.log('winner', winner);
-  //   finalScores(a, b, c, d, finalTiles)
-  //   setWinner(winner.name);
-  // }
 
   function handleWinner(a, b, c, d, finalTiles) {
     const extra = finalTiles.reduce(function (a, b) {
@@ -161,9 +131,6 @@ export default function Players({
         setFinalD(0);
       }
     }
-    // const finalB = b.score - finalTiles[1];
-    // const finalC = c.score - finalTiles[2];
-    // const finalD = d.score - finalTiles[3];
     const players = [
       { name: a.name, score: finalA },
       { name: b.name, score: finalB },
@@ -174,13 +141,9 @@ export default function Players({
       return b.score - a.score;
     })[0];
     setWinner(winner.name);
-    // setFinalA(players[0].score);
-    // setFinalB(players[1].score);
-    // setFinalC(players[2].score);
-    // setFinalD(players[3].score);
 
-    console.log('final scores', finalA, finalB, finalC, finalD);
-    console.log('winner', winner);
+    // console.log('final scores', finalA, finalB, finalC, finalD);
+    // console.log('winner', winner);
   }
 
   return (

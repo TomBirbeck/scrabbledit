@@ -43,6 +43,7 @@ export default function ScrabbleButton() {
       {letters.map((l) => {
         return (
           <button
+            data-testid='letterButtons'
             className='letter-buttons'
             key={l}
             value={l}

@@ -142,7 +142,6 @@ export default function Display() {
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
 
-
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
       <div id='display'>
@@ -152,7 +151,6 @@ export default function Display() {
               <div id='letter-button-layout' key={i + index}>
                 <div id='display-button' key={uuidv4()}>
                   <span id='letters' key={uuidv4()}>
-                   {/* style={{ fontSize: '3.2em' }}> */}
                      {i}
                   </span>
                 </div>
@@ -255,8 +253,6 @@ export default function Display() {
         <h3 id='word-score'> Word score: {score} </h3>
         <ScrabbleButton />
         <Players
-        //   score={passScore}
-        //   setScore={setPassScore}
           turn={turn}
           setTurn={setTurn}
           player1={player1}
@@ -270,8 +266,6 @@ export default function Display() {
           finalScoreMode = {finalScoreMode}
           setFinalScoreMode = {setFinalScoreMode}
           finalTiles = {finalTiles}
-          // finalScore = {finalScore}
-          // setFinalScore = {setFinalScore}
         />
       </div>
     </WordContext.Provider>
