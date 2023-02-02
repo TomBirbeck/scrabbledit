@@ -73,4 +73,57 @@ describe('player scoreboard tests', () => {
         const player4Button = screen.getByRole('button', {name: 'Greg'});
         expect(player4Button).toBeInTheDocument()
     })
+
+    test('final score mode button renders', () => {
+        const props = {
+            turn: 'Dave',
+            player1: {name: 'John', score: 0},
+            player2: {name: 'Simone', score: 0},
+            player3: {name: 'Claire', score: 0},
+            player4: {name: 'Greg', score: 0},
+            finalTiles: [0,0,0,0]
+        }
+        render(<Players turn={props.turn} player1={props.player1} player2={props.player2} player3={props.player3} player4={props.player4} finalTiles={props.finalTiles}/>);
+        const finalScoreModeButton = screen.getByRole('button', {name: 'Final Score Mode'});
+        expect(finalScoreModeButton).toBeInTheDocument()
+    })
+
+    test('winner button renders', () => {
+        const props = {
+            turn: 'Dave',
+            player1: {name: 'John', score: 0},
+            player2: {name: 'Simone', score: 0},
+            player3: {name: 'Claire', score: 0},
+            player4: {name: 'Greg', score: 0},
+            finalTiles: [0,0,0,0]
+        }
+        render(<Players turn={props.turn} player1={props.player1} player2={props.player2} player3={props.player3} player4={props.player4} finalTiles={props.finalTiles}/>);
+        const winnerButton = screen.getByRole('button', {name: 'Winner'});
+        expect(winnerButton).toBeInTheDocument()
+    })
+
+    test('player scores render correctly', () => {
+        const props = {
+            turn: 'Dave',
+            player1: {name: 'John', score: 1},
+            player2: {name: 'Simone', score: 2},
+            player3: {name: 'Claire', score: 3},
+            player4: {name: 'Greg', score: 4},
+            finalTiles: [5,6,7,8]
+        }
+        render(<Players turn={props.turn} player1={props.player1} player2={props.player2} player3={props.player3} player4={props.player4} finalTiles={props.finalTiles}/>);
+        const player1Score = screen.getByText(props.player1.score);
+        expect(player1Score).toBeInTheDocument()
+        expect(Number(player1Score.textContent)).toBe(1)
+        const player2Score = screen.getByText(props.player2.score);
+        expect(player2Score).toBeInTheDocument()
+        expect(Number(player2Score.textContent)).toBe(2)
+        const player3Score = screen.getByText(props.player3.score);
+        expect(player3Score).toBeInTheDocument()
+        expect(Number(player3Score.textContent)).toBe(3)
+        const player4Score = screen.getByText(props.player4.score);
+        expect(player4Score).toBeInTheDocument()
+        expect(Number(player4Score.textContent)).toBe(4)
+
+    })
 })
