@@ -14,7 +14,7 @@ function App() {
           </div>
         </div>
         <h2 id='motto'>We can't trust Barry with the scores again</h2>
-        <Display />
+        <Display data-testid='appDisplay'/>
       </div>
     </WordContext.Provider>
   );
