@@ -1,7 +1,5 @@
 * {
   margin: 0;
-  padding: 0;
-  /* overflow-x: hidden; */
 }
 
 :root {
@@ -57,7 +55,7 @@
 }
 
 #title-container {
-  width: 100vw;
+  width: 98vw;
   display: flex;
   justify-content: center;
 }
