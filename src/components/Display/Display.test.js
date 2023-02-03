@@ -22,4 +22,24 @@ describe('all buttons appear', () => {
         const x3 = screen.getByRole('button', {name: "X3"})
         expect(x3).toBeInTheDocument()
     })
+    test('all tiles button renders correctly', () => {
+        render(<Display/>);
+        const allTiles = screen.getByRole('button', {name: 'All Tiles Used'})
+        expect(allTiles).toBeInTheDocument()
+    })
+    test('check word button renders correctly', () => {
+        render(<Display/>);
+        const checkWord = screen.getByRole('button', {name: 'Check'})
+        expect(checkWord).toBeInTheDocument()
+    })
+    test('submit word button renders correctly', () => {
+        render(<Display/>);
+        const submitWord = screen.getByRole('button', {name: 'Submit'})
+        expect(submitWord).toBeInTheDocument()
+    })
+    test('clear word button renders correctly', () => {
+        render(<Display/>);
+        const clearWord = screen.getByRole('button', {name: 'Clear'})
+        expect(clearWord).toBeInTheDocument()
+    })
 })
