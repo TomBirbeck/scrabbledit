@@ -27,8 +27,7 @@ export function calculateScrabbleScore(word, doubles, triples) {
     } else {
         tri = triples
     }
-    // let dou = doubles.join('')
-    // let tri = triples.join('')
+    
     let scrabbleWord = lets + dou + tri + tri;
     // console.log("scrab", scrabbleWord)
     const score = [];
