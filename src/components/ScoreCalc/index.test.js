@@ -109,3 +109,39 @@ expect(() => {calculateScrabbleScore(actual)}).toThrow(Error);
     console.log (actual);
     expect(() => {calculateScrabbleScore(actual)}).toThrow(Error);
 });
+
+test('testing word with double letters added', () => {
+    const expected = 10;
+    const actual = calculateScrabbleScore(["G", "H", "O", "S", "T"], ["O"]);
+    expect(actual).toBe(expected);
+})
+
+test.each([
+    [["D", "A", "Y"], ["A"], 8],
+    [["P", "A", "Y"], ["P"], 11],
+    [["S", "T", "A", "N", "D"], ["S"], 7],
+    [["G", "H", "O", "S", "T"], ["G"], 11],
+])
+(`When an array of letters and an array of doubles, checkScrabbleScore correctly calculates the sore`, (letters, doubleLetters, expected) =>{
+    const actual = calculateScrabbleScore(letters, doubleLetters)
+    const expectedAnswer = expected;
+    expect(actual).toBe(expectedAnswer);
+});
+
+test('testing word with triple letters added', () => {
+    const expected = 11;
+    const actual = calculateScrabbleScore(["G", "H", "O", "S", "T"], [], ["S"]);
+    expect(actual).toBe(expected);
+})
+
+test.each([
+    [["D", "A", "Y"], [], ["A"], 9],
+    [["P", "A", "Y"], [], ["P"], 14],
+    [["S", "T", "A", "N", "D"], [], ["S"], 8],
+    [["G", "H", "O", "S", "T"], [], ["G"], 13],
+])
+(`When an array of letters and an array of doubles, checkScrabbleScore correctly calculates the sore`, (letters, doubleLetters, tripleLetters, expected) =>{
+    const actual = calculateScrabbleScore(letters, doubleLetters, tripleLetters)
+    const expectedAnswer = expected;
+    expect(actual).toBe(expectedAnswer);
+});
