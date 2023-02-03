@@ -266,6 +266,7 @@ export default function Display() {
           finalScoreMode = {finalScoreMode}
           setFinalScoreMode = {setFinalScoreMode}
           finalTiles = {finalTiles}
+          data-testid='scoreBoard'
         />
       </div>
     </WordContext.Provider>
