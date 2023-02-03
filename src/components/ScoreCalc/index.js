@@ -7,12 +7,28 @@ export function calculateScrabbleScore(word, doubles, triples) {
     const words6 = ["J", "X"]
     const words7 = ["Q", "Z"]
     const words8 = ["_"]
-
+    
     // const scrabbleWord = word.toUpperCase(); // converts all letters of word entered to uppercase
-
-    let lets = word.join('')
-    let dou = doubles.join('')
-    let tri = triples.join('')
+    let lets =''
+    let dou = ''
+    let tri = ''
+    if (word.length > 1){
+         lets = word.join('')
+    } else {
+        lets = word
+    }
+    if (doubles?.length > 1){
+         dou = doubles.join('')
+    } else {
+        dou = doubles
+    }
+    if (triples?.length > 1){
+         tri = triples.join('')
+    } else {
+        tri = triples
+    }
+    // let dou = doubles.join('')
+    // let tri = triples.join('')
     let scrabbleWord = lets + dou + tri + tri;
     // console.log("scrab", scrabbleWord)
     const score = [];
