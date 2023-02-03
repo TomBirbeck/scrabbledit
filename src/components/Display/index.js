@@ -216,7 +216,7 @@ export default function Display() {
             Triple Word
           </button>
           <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}}>X2</button>
-          <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>x3</button>
+          <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>X3</button>
           <button
             className='all-tiles-button'
             onClick={() => {
