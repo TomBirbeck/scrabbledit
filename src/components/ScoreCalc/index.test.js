@@ -110,6 +110,8 @@ expect(() => {calculateScrabbleScore(actual)}).toThrow(Error);
     expect(() => {calculateScrabbleScore(actual)}).toThrow(Error);
 });
 
+//Tests for double and triple letters
+
 test('testing word with double letters added', () => {
     const expected = 10;
     const actual = calculateScrabbleScore(["G", "H", "O", "S", "T"], ["O"]);
@@ -121,6 +123,8 @@ test.each([
     [["P", "A", "Y"], ["P"], 11],
     [["S", "T", "A", "N", "D"], ["S"], 7],
     [["G", "H", "O", "S", "T"], ["G"], 11],
+    [["D", "A", "Y"], ["A", "D"], 10],
+    [["S", "T", "A", "N", "D"], ["S", "A", "N"], 9],
 ])
 (`When an array of letters and an array of doubles, checkScrabbleScore correctly calculates the sore`, (letters, doubleLetters, expected) =>{
     const actual = calculateScrabbleScore(letters, doubleLetters)
@@ -139,6 +143,28 @@ test.each([
     [["P", "A", "Y"], [], ["P"], 14],
     [["S", "T", "A", "N", "D"], [], ["S"], 8],
     [["G", "H", "O", "S", "T"], [], ["G"], 13],
+    [["D", "A", "Y"], [], ["A", "D"], 13],
+    [["G", "H", "O", "S", "T"], [], ["G", "O"], 15],
+])
+(`When an array of letters and an array of doubles, checkScrabbleScore correctly calculates the sore`, (letters, doubleLetters, tripleLetters, expected) =>{
+    const actual = calculateScrabbleScore(letters, doubleLetters, tripleLetters)
+    const expectedAnswer = expected;
+    expect(actual).toBe(expectedAnswer);
+});
+
+test('testing word with double and triple letters added', () => {
+    const expected = 12;
+    const actual = calculateScrabbleScore(["G", "H", "O", "S", "T"], ["T"], ["S"]);
+    expect(actual).toBe(expected);
+})
+
+test.each([
+    [["D", "A", "Y"], ["Y"], ["A"], 13],
+    [["P", "A", "Y"], ["A"], ["P"], 15],
+    [["S", "T", "A", "N", "D"], ["D"], ["S"], 10],
+    [["G", "H", "O", "S", "T"], ["H"], ["G"], 17],
+    [["S", "T", "A", "N", "D"], ["D"], ["S", "T"], 12],
+    [["G", "H", "O", "S", "T"], ["H"], ["G", "O"], 19],
 ])
 (`When an array of letters and an array of doubles, checkScrabbleScore correctly calculates the sore`, (letters, doubleLetters, tripleLetters, expected) =>{
     const actual = calculateScrabbleScore(letters, doubleLetters, tripleLetters)
