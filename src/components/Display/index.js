@@ -208,14 +208,14 @@ export default function Display() {
           >
             Double Word
           </button>
-          <button className='double-word-extra' onClick={() => {setDoubleDoubleScore(!doubleDoubleScore)}}>X2</button>
+          <button className='double-word-extra' onClick={() => {setDoubleDoubleScore(!doubleDoubleScore)}} data-testid='doublex2' >X2</button>
           <button
             className='triple-word-button'
             onClick={handleTripleWordClick}
           >
             Triple Word
           </button>
-          <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}}>X2</button>
+          <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}} data-testid='triplex2' >X2</button>
           <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>X3</button>
           <button
             className='all-tiles-button'
