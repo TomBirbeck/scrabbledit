@@ -8,18 +8,20 @@ export default function Instructions() {
     <div id='instructions'>
       <h2
         style={{ marginLeft: '1em' }}
-        onClick={() => {
+        onMouseOver={() => {
           setOpen(true);
+        }}
+        onMouseLeave={() => {
+          setOpen(false)
+        }}
+        onClick={() => {
+          setOpen(!open)
         }}
       >
         Instructions for use
       </h2>
-      <h4 style={{ fontSize: '.7em', marginLeft: '2.3em'}}>
-        (Click to open)
-      </h4>
       {open ? (
-        <div id='instructions-container'>
-          <button id='close-instructions' onClick={() => {setOpen(false)}}>Close X</button>
+        <div id='instructions-container' data-testid='instructionsModal'>
           <ol id='instructions-list'>
             <li className='instruction-head'>To change a player's name:</li>
             <li>
