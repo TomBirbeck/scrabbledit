@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import Display from '.';
 
 describe('all buttons appear', () => {
@@ -54,5 +54,47 @@ describe('display text elements', () => {
         render(<Display/>);
         const Score = screen.getByText(/word score/gi);
         expect(Score).toBeInTheDocument();
+    })
+    test('when double word mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByRole('button', {name: "Double Word"});
+        fireEvent.click(button)
+        const text = screen.getByText('Double Word Score Active')
+        expect(text).toBeInTheDocument()
+    })
+    test('when double  x2 word mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByTestId('doublex2');
+        fireEvent.click(button)
+        const text = screen.getByText('Double Double Word Score Active')
+        expect(text).toBeInTheDocument()
+    })
+    test('when triple word mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByRole('button', {name: "Triple Word"});
+        fireEvent.click(button)
+        const text = screen.getByText('Triple Word Score Active')
+        expect(text).toBeInTheDocument()
+    })
+    test('when triple x2 word mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByTestId('triplex2');
+        fireEvent.click(button)
+        const text = screen.getByText('Double Triple Word Score Active')
+        expect(text).toBeInTheDocument()
+    })
+    test('when triple x3 word mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByRole('button', {name: "X3"});
+        fireEvent.click(button)
+        const text = screen.getByText('Triple Triple Word Score Active')
+        expect(text).toBeInTheDocument()
+    })
+    test('when all tiles mode is active, confirmation text displays', () => {
+        render(<Display/>);
+        const button = screen.getByRole('button', {name: "All Tiles Used"});
+        fireEvent.click(button)
+        const text = screen.getByText('All Tiles Used Mode Active')
+        expect(text).toBeInTheDocument()
     })
 })
