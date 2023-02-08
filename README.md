@@ -33,7 +33,7 @@ This component maps over an array of letters to produce a button that when click
 
 #### Display
 
-This is the main hub of the app. It contains the states and functions that track the multpliers used for letters and words. On clicking the 'Check' or 'Submit' buttons, the basic word is sent to the ScoreCalc component along with the double and triple letters, the word multipliers are then done inside the handleWordCheck and handleWordSubmit functions located in the Display component.
+This is the main hub of the app. It contains the states and functions that track the multpliers used for letters and words. On clicking the 'Check' or 'Submit' buttons, the basic word is sent to the ScoreCalc component along with the double and triple letters, the score returned is then handed to the ScoreModeCalc function along with the word mode. This will then handle and score multiplications. Both of these functions are called inside the handleWordCheck and handleWordSubmit functions located in the Display component.
 The word and score for that word is rendered in this component, as is the text to display any multiplier modes.
 This component is also responsible for the removal of any letters or the complete clearing of a word
 It also contains the states for the players, turns, final score mode and final tiles that all passed down for use in the Players component.
@@ -49,3 +49,7 @@ This component is responsible for rendering the scoreboard, which player's turn 
 #### ScoreCalc
 
 This is a function that takes in the basic word, double letters and triple letters and calculates the score based on the scrabble letter point scoring system.
+
+#### ScoreModeCalc
+
+Tis is a function that takes a score and a word mode and will return the correct score for each word mode. 
