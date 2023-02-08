@@ -5,6 +5,7 @@ import { calculateScrabbleScore } from '../ScoreCalc';
 import './/display.css';
 import Players from '../Players';
 import { v4 as uuidv4 } from 'uuid';
+import ScoreModeCalc from '../ScoreModeCalc';
 
 export default function Display() {
   const [displayWord, SetDisplayWord] = useState([]);
@@ -141,6 +142,8 @@ export default function Display() {
   setTurn({})
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
+
+console.log(ScoreModeCalc(12, 'tripleTriple'))
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
