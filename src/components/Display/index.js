@@ -11,11 +11,6 @@ export default function Display() {
   const [displayWord, SetDisplayWord] = useState([]);
   const [doubleLetters, setDoubleLetters] = useState([]);
   const [tripleLetters, setTripleLetters] = useState([]);
-  const [doubleScore, setDoubleScore] = useState(false);
-  const [doubleDoubleScore, setDoubleDoubleScore] = useState(false);
-  const [tripleScore, setTripleScore] = useState(false);
-  const [doubleTripleScore, setDoubleTripleScore] = useState(false);
-  const [tripleTripleScore, setTripleTripleScore] = useState(false);
   const [allTiles, setAllTiles] = useState(false);
   const [finalScoreMode, setFinalScoreMode] = useState(false);
   const [score, SetScore] = useState(0);
@@ -35,41 +30,15 @@ export default function Display() {
     allTiles ? extra = 50: extra = 0;
     SetScore(modeScore + extra);
   }
-  // function handleWordCheck(displayWord) {
-  //   let mode = 1;
-  //   let mode2 = 1;
-  //   let mode3 = 1;
-  //   let mode4 = 1;
-  //   let mode5 = 1;
-  //   let extra = 0;
-  //   allTiles ? extra = 50: extra = 0;
-  //   doubleScore ? (mode = 2) :  (mode = 1);
-  //   doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
-  //   tripleScore ? (mode3 = 3) : (mode3 = 1);
-  //   doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
-  //   tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
-  //   SetScore(
-  //     (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
-  // }
 
   function handleWordSubmit(displayWord) {
     if (finalScoreMode === false) {
-    let mode = 1;
-    let mode2 = 1;
-    let mode3 = 1;
-    let mode4 = 1;
-    let mode5 = 1;
-    let extra = 0;
-    allTiles ? extra = 50: extra = 0;
-    doubleScore ? (mode = 2) :  (mode = 1);
-    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
-    tripleScore ? (mode3 = 3) : (mode3 = 1);
-    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
-    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
-    SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
-    setPassScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 *mode5 + extra);
+      let extra = 0;
+      let score = calculateScrabbleScore(displayWord, doubleLetters, tripleLetters)
+      let modeScore = ScoreModeCalc(score, wordMode)
+      allTiles ? extra = 50: extra = 0;
+      SetScore(modeScore + extra);
+      setPassScore(modeScore + extra);
     }
     if (finalScoreMode === true) {
       let scores = finalTiles;
@@ -80,11 +49,7 @@ export default function Display() {
     setDoubleLetters([]);
     setTripleLetters([]);
     SetScore(0);
-    setDoubleScore(false);
-    setDoubleDoubleScore(false)
-    setTripleScore(false);
-    setDoubleTripleScore(false);
-    setTripleTripleScore(false);
+    setWordMode('normal')
     setAllTiles(false);
   }
 
@@ -127,7 +92,6 @@ export default function Display() {
       setWordMode('normal')
     }
   }
-
 
   function handleChangeDouble(e) {
     let doubles = [];
