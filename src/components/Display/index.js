@@ -5,16 +5,12 @@ import { calculateScrabbleScore } from '../ScoreCalc';
 import './/display.css';
 import Players from '../Players';
 import { v4 as uuidv4 } from 'uuid';
+import ScoreModeCalc from '../ScoreModeCalc';
 
 export default function Display() {
   const [displayWord, SetDisplayWord] = useState([]);
   const [doubleLetters, setDoubleLetters] = useState([]);
   const [tripleLetters, setTripleLetters] = useState([]);
-  const [doubleScore, setDoubleScore] = useState(false);
-  const [doubleDoubleScore, setDoubleDoubleScore] = useState(false);
-  const [tripleScore, setTripleScore] = useState(false);
-  const [doubleTripleScore, setDoubleTripleScore] = useState(false);
-  const [tripleTripleScore, setTripleTripleScore] = useState(false);
   const [allTiles, setAllTiles] = useState(false);
   const [finalScoreMode, setFinalScoreMode] = useState(false);
   const [score, SetScore] = useState(0);
@@ -25,42 +21,24 @@ export default function Display() {
   const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
   const [finalTiles, setFinalTiles] = useState([]);
+  const [wordMode, setWordMode] = useState('normal')
 
   function handleWordCheck(displayWord) {
-    let mode = 1;
-    let mode2 = 1;
-    let mode3 = 1;
-    let mode4 = 1;
-    let mode5 = 1;
-    let extra = 0;
+    let extra = 0
+    let score = calculateScrabbleScore(displayWord, doubleLetters, tripleLetters)
+    let modeScore = ScoreModeCalc(score, wordMode)
     allTiles ? extra = 50: extra = 0;
-    doubleScore ? (mode = 2) :  (mode = 1);
-    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
-    tripleScore ? (mode3 = 3) : (mode3 = 1);
-    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
-    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
-    SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
+    SetScore(modeScore + extra);
   }
 
   function handleWordSubmit(displayWord) {
     if (finalScoreMode === false) {
-    let mode = 1;
-    let mode2 = 1;
-    let mode3 = 1;
-    let mode4 = 1;
-    let mode5 = 1;
-    let extra = 0;
-    allTiles ? extra = 50: extra = 0;
-    doubleScore ? (mode = 2) :  (mode = 1);
-    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
-    tripleScore ? (mode3 = 3) : (mode3 = 1);
-    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
-    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
-    SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
-    setPassScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 *mode5 + extra);
+      let extra = 0;
+      let score = calculateScrabbleScore(displayWord, doubleLetters, tripleLetters)
+      let modeScore = ScoreModeCalc(score, wordMode)
+      allTiles ? extra = 50: extra = 0;
+      SetScore(modeScore + extra);
+      setPassScore(modeScore + extra);
     }
     if (finalScoreMode === true) {
       let scores = finalTiles;
@@ -71,11 +49,7 @@ export default function Display() {
     setDoubleLetters([]);
     setTripleLetters([]);
     SetScore(0);
-    setDoubleScore(false);
-    setDoubleDoubleScore(false)
-    setTripleScore(false);
-    setDoubleTripleScore(false);
-    setTripleTripleScore(false);
+    setWordMode('normal')
     setAllTiles(false);
   }
 
@@ -84,11 +58,39 @@ export default function Display() {
   }
 
   function handleDoubleWordClick() {
-    setDoubleScore(!doubleScore);
+    if (wordMode !== 'double'){
+      setWordMode('double')
+    } else {
+      setWordMode('normal')
+    }
   }
-
+  function handleDoubleDoubleWordClick() {
+    if (wordMode !== 'doubleDouble'){
+      setWordMode('doubleDouble')
+    } else {
+      setWordMode('normal')
+    }
+  }
   function handleTripleWordClick() {
-    setTripleScore(!tripleScore);
+    if (wordMode !== 'triple'){
+      setWordMode('triple')
+    } else {
+      setWordMode('normal')
+    }
+  }
+  function handleDoubleTripleWordClick() {
+    if (wordMode !== 'doubleTriple'){
+      setWordMode('doubleTriple')
+    } else {
+      setWordMode('normal')
+    }
+  }
+  function handleTripleTripleWordClick() {
+    if (wordMode !== 'tripleTriple'){
+      setWordMode('tripleTriple')
+    } else {
+      setWordMode('normal')
+    }
   }
 
   function handleChangeDouble(e) {
@@ -112,11 +114,7 @@ export default function Display() {
     setTripleLetters([]);
     SetScore(0);
     setPassScore(0);
-    setDoubleScore(false);
-    setDoubleDoubleScore(false);
-    setTripleScore(false);
-    setDoubleTripleScore(false);
-    setTripleTripleScore(false);
+    setWordMode('normal')
     setAllTiles(false);
   }
 
@@ -194,11 +192,11 @@ export default function Display() {
         </div>
         <div className='score-mode'>
           {finalScoreMode ? <h2>Final Score Mode</h2> : null}
-          {doubleScore ? <h3>Double Word Score Active</h3> : null}
-          {doubleDoubleScore ? <h3>Double Double Word Score Active</h3>: null}
-          {tripleScore ? <h3>Triple Word Score Active</h3> : null}
-          {doubleTripleScore ? <h3>Double Triple Word Score Active</h3>: null}
-          {tripleTripleScore ? <h3>Triple Triple Word Score Active</h3>: null}
+          {wordMode === 'double' ? <h3>Double Word Score Active</h3> :
+          wordMode === 'doubleDouble' ? <h3>Double Double Word Score Active</h3> :
+          wordMode === 'triple' ? <h3>Triple Word Score Active</h3> : 
+          wordMode === 'doubleTriple' ? <h3>Double Triple Word Score Active</h3> :
+          wordMode === 'tripleTriple' ? <h3>Triple Triple Word Score Active</h3> : null}
           {allTiles ? <h3>All Tiles Used Mode Active</h3>: null}
         </div>
         <div>
@@ -208,15 +206,15 @@ export default function Display() {
           >
             Double Word
           </button>
-          <button className='double-word-extra' onClick={() => {setDoubleDoubleScore(!doubleDoubleScore)}} data-testid='doublex2' >X2</button>
+          <button className='double-word-extra' onClick={handleDoubleDoubleWordClick} data-testid='doublex2' >X2</button>
           <button
             className='triple-word-button'
             onClick={handleTripleWordClick}
           >
             Triple Word
           </button>
-          <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}} data-testid='triplex2' >X2</button>
-          <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>X3</button>
+          <button className='triple-word-extra' onClick={handleDoubleTripleWordClick} data-testid='triplex2' >X2</button>
+          <button className='triple-word-extra' onClick={handleTripleTripleWordClick}>X3</button>
           <button
             className='all-tiles-button'
             onClick={() => {
