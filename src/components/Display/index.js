@@ -26,6 +26,7 @@ export default function Display() {
   const [player3, setPlayer3] = useState({ id: 3, name: 'player 3', score: 0 });
   const [player4, setPlayer4] = useState({ id: 4, name: 'player 4', score: 0 });
   const [finalTiles, setFinalTiles] = useState([]);
+  const [wordMode, setWordMode] = useState('normal')
 
   function handleWordCheck(displayWord) {
     let mode = 1;
@@ -142,8 +143,6 @@ export default function Display() {
   setTurn({})
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, [passScore])
-
-console.log(ScoreModeCalc(12, 'tripleTriple'))
 
   return (
     <WordContext.Provider value={{ displayWord, SetDisplayWord }}>
