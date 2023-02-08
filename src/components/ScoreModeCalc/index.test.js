@@ -109,7 +109,7 @@ describe('tests for score mode calc function in tripleTriple mode', () => {
         [5, 'tripleTriple', 135],
         [9, 'tripleTriple', 243],
     ])
-    (`When given a score and 'tripleTriple' scoremodecalc function returns the same score`, (score, mode, expected) =>{
+    (`When given a score and 'tripleTriple' scoremodecalc function returns the score triple thrice`, (score, mode, expected) =>{
         const actual = ScoreModeCalc(score, mode);
        expect(actual).toBe(expected);
    });

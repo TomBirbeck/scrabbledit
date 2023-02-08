@@ -29,21 +29,28 @@ export default function Display() {
   const [wordMode, setWordMode] = useState('normal')
 
   function handleWordCheck(displayWord) {
-    let mode = 1;
-    let mode2 = 1;
-    let mode3 = 1;
-    let mode4 = 1;
-    let mode5 = 1;
-    let extra = 0;
+    let extra = 0
+    let score = calculateScrabbleScore(displayWord, doubleLetters, tripleLetters)
+    let modeScore = ScoreModeCalc(score, wordMode)
     allTiles ? extra = 50: extra = 0;
-    doubleScore ? (mode = 2) :  (mode = 1);
-    doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
-    tripleScore ? (mode3 = 3) : (mode3 = 1);
-    doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
-    tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
-    SetScore(
-      (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
+    SetScore(modeScore + extra);
   }
+  // function handleWordCheck(displayWord) {
+  //   let mode = 1;
+  //   let mode2 = 1;
+  //   let mode3 = 1;
+  //   let mode4 = 1;
+  //   let mode5 = 1;
+  //   let extra = 0;
+  //   allTiles ? extra = 50: extra = 0;
+  //   doubleScore ? (mode = 2) :  (mode = 1);
+  //   doubleDoubleScore ? (mode2 = 2) :  (mode2 = 1);
+  //   tripleScore ? (mode3 = 3) : (mode3 = 1);
+  //   doubleTripleScore ? (mode4 = 3) : (mode4 = 1);
+  //   tripleTripleScore ? (mode5 = 3) : (mode5 = 1);
+  //   SetScore(
+  //     (calculateScrabbleScore(displayWord, doubleLetters, tripleLetters) * mode) * mode2 * mode3 * mode4 * mode5 + extra);
+  // }
 
   function handleWordSubmit(displayWord) {
     if (finalScoreMode === false) {
@@ -86,7 +93,11 @@ export default function Display() {
   }
 
   function handleDoubleWordClick() {
-    setDoubleScore(!doubleScore);
+    if (wordMode !== 'double'){
+      setWordMode('double')
+    } else {
+      setWordMode('normal')
+    }
   }
 
   function handleTripleWordClick() {
@@ -196,11 +207,11 @@ export default function Display() {
         </div>
         <div className='score-mode'>
           {finalScoreMode ? <h2>Final Score Mode</h2> : null}
-          {doubleScore ? <h3>Double Word Score Active</h3> : null}
-          {doubleDoubleScore ? <h3>Double Double Word Score Active</h3>: null}
-          {tripleScore ? <h3>Triple Word Score Active</h3> : null}
-          {doubleTripleScore ? <h3>Double Triple Word Score Active</h3>: null}
-          {tripleTripleScore ? <h3>Triple Triple Word Score Active</h3>: null}
+          {wordMode === 'double' ? <h3>Double Word Score Active</h3> :
+          wordMode === 'doubleDouble' ? <h3>Double Double Word Score Active</h3> :
+          wordMode === 'triple' ? <h3>Triple Word Score Active</h3> : 
+          wordMode === 'doubleTriple' ? <h3>Double Triple Word Score Active</h3> :
+          wordMode === 'tripleTriple' ? <h3>Triple Triple Word Score Active</h3> : null}
           {allTiles ? <h3>All Tiles Used Mode Active</h3>: null}
         </div>
         <div>
