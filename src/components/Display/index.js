@@ -99,10 +99,35 @@ export default function Display() {
       setWordMode('normal')
     }
   }
-
-  function handleTripleWordClick() {
-    setTripleScore(!tripleScore);
+  function handleDoubleDoubleWordClick() {
+    if (wordMode !== 'doubleDouble'){
+      setWordMode('doubleDouble')
+    } else {
+      setWordMode('normal')
+    }
   }
+  function handleTripleWordClick() {
+    if (wordMode !== 'triple'){
+      setWordMode('triple')
+    } else {
+      setWordMode('normal')
+    }
+  }
+  function handleDoubleTripleWordClick() {
+    if (wordMode !== 'doubleTriple'){
+      setWordMode('doubleTriple')
+    } else {
+      setWordMode('normal')
+    }
+  }
+  function handleTripleTripleWordClick() {
+    if (wordMode !== 'tripleTriple'){
+      setWordMode('tripleTriple')
+    } else {
+      setWordMode('normal')
+    }
+  }
+
 
   function handleChangeDouble(e) {
     let doubles = [];
@@ -125,11 +150,7 @@ export default function Display() {
     setTripleLetters([]);
     SetScore(0);
     setPassScore(0);
-    setDoubleScore(false);
-    setDoubleDoubleScore(false);
-    setTripleScore(false);
-    setDoubleTripleScore(false);
-    setTripleTripleScore(false);
+    setWordMode('normal')
     setAllTiles(false);
   }
 
@@ -221,15 +242,15 @@ export default function Display() {
           >
             Double Word
           </button>
-          <button className='double-word-extra' onClick={() => {setDoubleDoubleScore(!doubleDoubleScore)}} data-testid='doublex2' >X2</button>
+          <button className='double-word-extra' onClick={handleDoubleDoubleWordClick} data-testid='doublex2' >X2</button>
           <button
             className='triple-word-button'
             onClick={handleTripleWordClick}
           >
             Triple Word
           </button>
-          <button className='triple-word-extra' onClick={() => {setDoubleTripleScore(!doubleTripleScore)}} data-testid='triplex2' >X2</button>
-          <button className='triple-word-extra' onClick={() => {setTripleTripleScore(!tripleTripleScore)}}>X3</button>
+          <button className='triple-word-extra' onClick={handleDoubleTripleWordClick} data-testid='triplex2' >X2</button>
+          <button className='triple-word-extra' onClick={handleTripleTripleWordClick}>X3</button>
           <button
             className='all-tiles-button'
             onClick={() => {
