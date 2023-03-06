@@ -8,6 +8,13 @@
   font-weight: 800;
 }
 
+.letter-buttons:hover {
+  scale: 1.1;
+  border-color: var(--cream);
+  color: var(--cream);
+  background-color: var(--green2);
+}
+
 #letter-button-con {
   display: flex;
   justify-content: center;
@@ -21,7 +28,6 @@
     display:flex;
     justify-content: center;
     flex-wrap: wrap;
-
   }
   
 }

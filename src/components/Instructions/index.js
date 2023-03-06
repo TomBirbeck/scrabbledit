@@ -6,7 +6,7 @@ export default function Instructions() {
 
   return (
     <div id='instructions'>
-      <h2
+      <h2 id='instructions-header'
         style={{ marginLeft: '1em' }}
         onMouseOver={() => {
           setOpen(true);

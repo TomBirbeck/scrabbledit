@@ -76,6 +76,11 @@
   background-color: rgb(247, 228, 65);
 }
 
+.button:hover {
+  scale: 1.1;
+  border-color: var(--white);
+}
+
 .double-word-extra {
   height: 2em;
   margin: 0.3em 0.3em 0.3em 0.1em;

@@ -201,22 +201,22 @@ export default function Display() {
         </div>
         <div>
           <button
-            className='double-word-button'
+            className='double-word-button button'
             onClick={handleDoubleWordClick}
           >
             Double Word
           </button>
-          <button className='double-word-extra' onClick={handleDoubleDoubleWordClick} data-testid='doublex2' >X2</button>
+          <button className='double-word-extra button' onClick={handleDoubleDoubleWordClick} data-testid='doublex2' >X2</button>
           <button
-            className='triple-word-button'
+            className='triple-word-button button'
             onClick={handleTripleWordClick}
           >
             Triple Word
           </button>
-          <button className='triple-word-extra' onClick={handleDoubleTripleWordClick} data-testid='triplex2' >X2</button>
-          <button className='triple-word-extra' onClick={handleTripleTripleWordClick}>X3</button>
+          <button className='triple-word-extra button' onClick={handleDoubleTripleWordClick} data-testid='triplex2' >X2</button>
+          <button className='triple-word-extra button' onClick={handleTripleTripleWordClick}>X3</button>
           <button
-            className='all-tiles-button'
+            className='all-tiles-button button'
             onClick={() => {
               setAllTiles(!allTiles);
             }}
@@ -224,7 +224,7 @@ export default function Display() {
             All Tiles Used
           </button>
           <button
-            className='check-button'
+            className='check-button button'
             onClick={() => {
               handleWordCheck(displayWord);
             }}
@@ -232,7 +232,7 @@ export default function Display() {
             Check
           </button>
           <button
-            className='submit-button'
+            className='submit-button button'
             onClick={() => {
               handleWordSubmit(displayWord);
             }}
@@ -240,7 +240,7 @@ export default function Display() {
             Submit
           </button>
           <button
-            className='clear-button'
+            className='clear-button button'
             onClick={() => {
               handleClear();
             }}
